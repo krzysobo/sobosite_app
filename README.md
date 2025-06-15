@@ -1,2 +1,2 @@
-# sobosite_app
-Desktop/Android/Js Application for Sobosite
+== Sobosite App
+=== WORK IN PROGRESS
