@@ -1,0 +1,366 @@
+<resources>
+    <string name="app_name">Sobosite App</string>
+    <string name="welcome_s">Welcome %1$s</string>
+    <string name="welcome">Welcome page</string>
+    <string name="welcome_story_sobosite">Welcome to the Sobosite application.
+        It is a template on which you can develop your own client-server applications, cooperating by default with a backend based on the
+        Sobosite Project. This template will be useful for anyone who wants to develop applications
+        based on the client-server architecture, requiring login, registration,
+        password reminders and user management.
+    </string>
+    <string name="welcome_story_sobo_crypto_center">Witamy w aplikacji Sobo Crypto Center.
+        Służy ona do szyfrowania i odszyfrowywania tekstu z użyciem algorytmów AES-GCM (symetryczny),
+        Diffie-Hellman's (hybrydowy) oraz RSA-AES (hybrydowy).
+    </string>
+
+    <string name="app_name_sobosite_desktop">Sobosite Desktop App</string>
+    <string name="app_name_sobo_crypto_center_desktop">Sobo Crypto Center Desktop App</string>
+
+    <string name="app_name_android">Sobosite App</string>
+
+    <string name="home">Home</string>
+
+    <string name="go_back">Go back</string>
+    <string name="login">Login</string>
+    <string name="log_in">Log In</string>
+    <string name="login_page">Login Page</string>
+    <string name="api_prefix_s">API PREFIX: %1$s</string>
+    <string name="api_test_sd">API TEST PREFIX: %1$s count: %2$d</string>
+
+    <string name="logout">Logout</string>
+    <string name="register">Register</string>
+    <string name="user_registration">User Registration</string>
+    <string name="registration_confirmation">Registration Confirmation</string>
+
+    <string name="register_confirm">Confirm registration</string>
+    <string name="confirm_your_registration">Confirm your Registration</string>
+    <string name="token">Token</string>
+    <string name="your_token">Your token</string>
+    <string name="token_required">Token is required</string>
+    <string name="registration_confirmed_ok">Registration Confirmed OK</string>
+    <string name="registration_confirmed_ok_desc">
+        Your registration has been successfully confirmed. You may now log in using
+        your credentials (login and password).
+    </string>
+
+    <string name="registration_confirmation_failure">Registration Confirmation FAILURE</string>
+    <string name="registration_confirmation_failure_desc">
+        Error occurred when trying to confirm your registration -
+        the data is incorrect or the connection is faulty.
+        Please your internet connection and provide the correct data from
+        your Registration Confirmation e-mail.
+    </string>
+
+
+    <string name="registration_ok">Registration OK</string>
+    <string name="error_registration_failure">Registration Failure</string>
+
+    <string name="registration_ok_desc">
+        You have just registered in our application.\n\n
+        You still need to confirm it - wait for the confirmation email, check your
+        mailbox (including Spam). To confirm, click on the activation link in the
+        email, or in the application in the 'Confirm Registration' view, pasting EMAIL and
+        TOKEN and clicking 'Confirm registration'
+    </string>
+
+    <string name="reset_pass">Reset password</string>
+    <string name="reset_your_password">Reset Your Password</string>
+    <string name="reset_pass_confirm">Confirm password reset</string>
+    <string name="password_reset">Password Reset</string>
+    <string name="password_reset_ok">Password Reset OK</string>
+    <string name="password_reset_ok_desc">
+        Your password has been successfully changed.
+    </string>
+    <string name="error_password_reset_confirmation_error">Password Reset Confirmation Error</string>
+    <string name="error_password_reset_confirmation_error_desc">
+        Error occurred when trying to confirm password reset -
+        the data is incorrect. Please provide the correct data from
+        your password reset e-mail.
+    </string>
+
+    <string name="confirm_password_reset">Confirm Your Password Reset</string>
+    <string name="confirm_password_reset_long">Confirm your Password Reset - update your password</string>
+    <string name="password_reset_desc_s">
+        If your mail %1$s exists in our database, the password reset message will be sent.
+        Check your mailbox, including 'SPAM' folders!
+    </string>
+    <string name="dashboard">Dashboard</string>
+    <string name="dashboard_long_s">%1$s Dashboard - user's own homepage</string>
+    <string name="profile">Profile</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="profile_updated">PROFILE UPDATED</string>
+    <string name="profile_updated_ok">Your profile has been successfully updated.</string>
+
+    <string name="open_password_edition">Open password edition</string>
+    <string name="close_password_edition">Close password edition</string>
+
+    <string name="update_settings">Update Settings</string>
+    <string name="settings_updated_ok">Settings Updated OK</string>
+    <string name="settings_updated_ok_desc">Your settings have been successfully updated.</string>
+    <string name="settings_updating_error">Settings Updating Error</string>
+    <string name="api_host_url">API Host URL</string>
+    <string name="api_host_url_desc">API Host URL, eg. http://localhost:9000/</string>
+    <string name="api_host_url_required">API Host URL is required</string>
+
+    <string name="api_prefix">API Prefix</string>
+    <string name="api_prefix_desc">API Prefix after HOST URL, eg. /api/v1</string>
+    <string name="api_prefix_required">API Prefix is required</string>
+
+
+    <string name="save_user_data">Save User Data</string>
+    <string name="user_saved_ok">User has been saved.</string>
+    <string name="user_saved_ok_desc">The user has been successfully saved.</string>
+    <string name="user_saving_error">User saving error.</string>
+
+    <string name="user_is_active">Is active?</string>
+    <string name="user_is_active_desc">Is active (able to log in)?</string>
+
+    <string name="user_is_staff">Is admin?</string>
+    <string name="user_is_staff_desc">Is admin (staff)?</string>
+
+    <string name="create_user">Create a user</string>
+
+
+    <string name="actions">Actions</string>
+
+    <string name="user_deletion_ok">USER ACCOUNT DELETION OK</string>
+    <string name="user_deletion_ok_desc">The user account has been successfully deleted.</string>
+
+    <string name="user_deletion_s">Deletion of the account %1$s</string>
+    <string name="user_deletion_qs">
+        Delete the user account %1$s (%2$s %3$s)?
+    </string>
+
+    <string name="s_about">%1$s - About</string>
+    <string name="s_help">%1$s - Help</string>
+    <string name="s_settings">%1$s - Settings</string>
+
+    <string name="about">About</string>
+    <string name="about_s">About %1$s</string>
+    <string name="help">Help</string>
+    <string name="help_s">%1$s Help</string>
+    <string name="more_at_url_s">More at: %1$s</string>
+
+    <string name="settings">Settings</string>
+    <string name="users">Users</string>
+    <string name="user_edition">User Edition</string>
+    <string name="list">List</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+
+
+    <string name="open_menu">Open Menu</string>
+    <string name="close_menu">Close Menu</string>
+    <string name="contact_info">Contact Info</string>
+    <string name="color_scheme">Color scheme: %1$s</string>
+    <string name="color_scheme_dark">Color scheme: DARK</string>
+    <string name="color_scheme_light">Color scheme: LIGHT</string>
+    <string name="dark">DARK</string>
+    <string name="light">LIGHT</string>
+    <string name="total_items_n">Total items: %1$d</string>
+    <string name="page_size">Page size: </string>
+    <string name="back">BACK</string>
+    <string name="forward">FORWARD</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+
+
+    <string name="email">Email</string>
+    <string name="full_name">Name</string>
+
+    <string name="first_name">First name</string>
+    <string name="your_first_name">Your first name</string>
+    <string name="first_name_required">First name is required</string>
+
+    <string name="last_name">Last name</string>
+    <string name="your_last_name">Your last name</string>
+    <string name="last_name_required">Last name is required</string>
+
+    <string name="username">Username</string>
+    <string name="your_username">Your username</string>
+    <string name="username_required">Username is required</string>
+
+    <string name="password">Password</string>
+    <string name="your_password">Your password</string>
+    <string name="password_required">Password is required</string>
+
+    <string name="password_confirmation">Password confirmation</string>
+    <string name="your_password_confirmation">Your password confirmation</string>
+    <string name="password_confirmation_required">Password confirmation is required</string>
+
+    <string name="current_password">Current password</string>
+    <string name="your_current_password">Your current password</string>
+    <string name="current_password_required">Current password is required</string>
+
+    <string name="new_password">New password</string>
+    <string name="your_new_password">Your new password</string>
+    <string name="new_password_required">New password is required</string>
+
+    <string name="new_password_confirmation">New password confirmation</string>
+    <string name="your_new_password_confirmation">Your new password confirmation</string>
+    <string name="new_password_confirmation_required">New password confirmation is required</string>
+    <string name="error_passwords_dont_match">Passwords don't match.</string>
+
+
+    <!-- errors -->
+    <string name="error_occurred">Error has occurred!</string>
+
+    <!-- HttpService:100 TODO -->
+    <string name="error_network_unavailable">Network is unavailable - check your connection.</string>
+    <string name="error_network_error">Network error</string>
+    <string name="error_network_error_desc">Network error has occurred. Please check your network connection and try again.</string>
+    <string name="error_network_error_s">Network error. Please check your network connection or contact your site administrator. Message: %1$s</string>
+
+    <!-- HttpService:107 TODO -->
+    <string name="error_no_api_server_found_s">no API server found at %1$s - check your network connection and client configuration.</string>
+
+    <!-- HttpService:141 TODO -->
+    <string name="error_incorrect_login_pass">Incorrect login or password.</string>
+    <string name="error_login_error">Login Error</string>
+    <string name="error_bad_credentials_long_p1">Bad credentials (login or password).
+        Please provide your valid credentials and try again, or
+    </string>
+
+    <string name="error_bad_credentials_long_p2">*register*</string>
+    <string name="error_bad_credentials_long_p3">if you don't have an account here, and then</string>
+    <string name="error_bad_credentials_long_p4">*activate*</string>
+    <string name="error_bad_credentials_long_p5">your newly created account.</string>
+
+    <!-- HttpService:252 TODO -->
+    <string name="error_not_authorized">Not authorized.</string>
+
+    <!-- HttpService:143, 446 TODO -->
+    <string name="error_api_error">API Error</string>
+    <string name="error_api_error_desc">API Error. Please check your network connection and settings.</string>
+
+    <!-- HttpService:276, 300 TODO -->
+    <string name="error_connection_failed">Connection failed.</string>
+
+    <!-- HttpService:205 TODO -->
+    <string name="error_could_not_confirm_registration_s">Could not confirm registration of %1$s.</string>
+
+    <!-- HttpService:436 TODO -->
+    <string name="error_account_exists_s">An account with email %1$s already exists.</string>
+
+    <!-- HttpService:440 TODO -->
+    <string name="error_email_invalid_s">Email %1$s is invalid.</string>
+    <string name="error_unknown_error">An unknown API error occurred, please contact your site administrator.</string>
+    <string name="error_profile_updating_error">PROFILE UPDATING ERROR</string>
+
+
+    <!-- secure notes  -->
+
+    <!-- crypto center -->
+    <string name="encrypt">Encrypt</string>
+
+    <string name="decrypt">Decrypt</string>
+
+
+    <!-- proper names - DO NOT TRANSLATE -->
+    <string name="essbase">Essbase</string>
+    <string name="pyrite">Pyrite</string>
+    <string name="aws_s3">AWS S3</string>
+
+
+    <string name="desc_sobosite_dashboard">
+        This is just a Sobosite application template. Feel free to modify and adjust this Dashboard for your needs.
+        Remember, that the basic goal of a dashboard is to provide users with 'their own homepage'.
+    </string>
+
+
+    <string name="language">
+        Language
+    </string>
+
+    <string name="use_device_language">
+        Use system (device) language?
+    </string>
+
+    <string name="plaintext">
+        Plaintext
+    </string>
+
+    <string name="plaintext_required">
+        Plaintext is required
+    </string>
+
+    <string name="secret_key_hex">
+        Secret key
+    </string>
+
+    <string name="secret_key_hex_required">
+        Secret key is required: either pasted (hex), generated or password-derived
+    </string>
+
+    <string name="cipher_text_hex">
+        Ciphertext (hex)
+    </string>
+
+    <string name="encryption_error_header">
+        ENCRYPTION ERROR
+    </string>
+
+    <string name="decryption_error_header">
+        DECRYPTION ERROR
+    </string>
+
+    <string name="copy_result_ciphertext">
+        Copy resulting ciphertext
+    </string>
+
+    <string name="copy_result_plaintext">
+        Copy resulting plaintext
+    </string>
+
+
+    <string name="get_secret_key">
+        GET SECRET KEY:
+    </string>
+
+    <string name="generate_random">
+        Generate random
+    </string>
+
+    <string name="from_password">
+        From Password
+    </string>
+
+    <string name="paste">
+        Paste
+    </string>
+
+    <string name="paste_plaintext">
+        Paste plaintext from clipboard
+    </string>
+
+    <string name="paste_ciphertext">
+        Paste ciphertext hex from clipboard
+    </string>
+
+    <string name="copy">
+        Copy
+    </string>
+
+    <string name="clear_all">
+        Clear all
+    </string>
+
+    <string name="copy_hex_key">
+        Copy hex key
+    </string>
+
+    <string name="paste_hex_key">
+        Paste hex key from clipboard
+    </string>
+
+    <string name="cryptocenter_decryption">
+        Sobo Crypto Center - Decryption
+    </string>
+
+    <string name="cryptocenter_encryption">
+        Sobo Crypto Center - Encryption
+    </string>
+
+</resources>
