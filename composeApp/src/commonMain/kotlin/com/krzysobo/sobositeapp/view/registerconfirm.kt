@@ -34,8 +34,8 @@ import com.krzysobo.soboapptpl.widgets.LoginWidget
 import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
-import com.krzysobo.sobositeapp.viewmodel.getRegisterConfirmPageVM
 import com.krzysobo.sobositeapp.viewmodel.RegisterConfirmPageVM
+import com.krzysobo.sobositeapp.viewmodel.getRegisterConfirmPageVM
 import kotlinx.coroutines.launch
 
 

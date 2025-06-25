@@ -10,10 +10,10 @@ import androidx.compose.ui.unit.dp
 import apptpl.composeapp.generated.resources.Res
 import apptpl.composeapp.generated.resources.about_s
 import apptpl.composeapp.generated.resources.more_at_url_s
-import com.krzysobo.sobositeapp.appVersion
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PageHeader
+import com.krzysobo.sobositeapp.appVersion
 
 
 @Composable

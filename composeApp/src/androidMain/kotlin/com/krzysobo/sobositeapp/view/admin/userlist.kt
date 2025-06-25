@@ -37,15 +37,13 @@ import apptpl.composeapp.generated.resources.back
 import apptpl.composeapp.generated.resources.create_user
 import apptpl.composeapp.generated.resources.delete
 import apptpl.composeapp.generated.resources.edit
-import apptpl.composeapp.generated.resources.email
+
+
 
 import com.krzysobo.soboapptpl.service.anyResText
 
-
-import apptpl.composeapp.generated.resources.first_name
+import com.krzysobo.soboapptpl.pubres.PubRes
 import apptpl.composeapp.generated.resources.forward
-import apptpl.composeapp.generated.resources.full_name
-import apptpl.composeapp.generated.resources.last_name
 import apptpl.composeapp.generated.resources.no
 import apptpl.composeapp.generated.resources.user_is_active
 import apptpl.composeapp.generated.resources.user_is_staff
@@ -169,12 +167,12 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
         fontSize = 13.sp
     )
     val columns = listOf(
-        anyResText(AnyRes(Res.string.email)),
-        anyResText(AnyRes(Res.string.first_name)),
-        anyResText(AnyRes(Res.string.last_name)),
+        anyResText(AnyRes(PubRes.string.email)),
+        anyResText(AnyRes(PubRes.string.first_name)),
+        anyResText(AnyRes(PubRes.string.last_name)),
         anyResText(AnyRes(Res.string.user_is_active)),
         anyResText(AnyRes(Res.string.user_is_staff)),
-        anyResText(AnyRes(Res.string.actions)),
+        anyResText(AnyRes(PubRes.string.actions)),
     )
 
     LazyColumn(
@@ -264,13 +262,13 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(all = 7.dp),
-                                text = "${anyResText(AnyRes(Res.string.email))}: ${user.email}"
+                                text = "${anyResText(AnyRes(PubRes.string.email))}: ${user.email}"
                             )
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(all = 7.dp),
-                                text = "${anyResText(AnyRes(Res.string.full_name))}: " +
+                                text = "${anyResText(AnyRes(PubRes.string.full_name))}: " +
                                         "${user.first_name} ${user.last_name}"
                             )
                             Text(

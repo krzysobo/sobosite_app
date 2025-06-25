@@ -21,17 +21,8 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import apptpl.composeapp.generated.resources.Res
 import apptpl.composeapp.generated.resources.close_password_edition
-import apptpl.composeapp.generated.resources.error_passwords_dont_match
-import apptpl.composeapp.generated.resources.first_name
-import apptpl.composeapp.generated.resources.first_name_required
-import apptpl.composeapp.generated.resources.last_name
-import apptpl.composeapp.generated.resources.last_name_required
 import apptpl.composeapp.generated.resources.no
 import apptpl.composeapp.generated.resources.open_password_edition
-import apptpl.composeapp.generated.resources.password
-import apptpl.composeapp.generated.resources.password_confirmation
-import apptpl.composeapp.generated.resources.password_confirmation_required
-import apptpl.composeapp.generated.resources.password_required
 import apptpl.composeapp.generated.resources.save_user_data
 import apptpl.composeapp.generated.resources.user_is_active_desc
 import apptpl.composeapp.generated.resources.user_is_staff_desc
@@ -39,6 +30,7 @@ import apptpl.composeapp.generated.resources.user_saved_ok
 import apptpl.composeapp.generated.resources.user_saved_ok_desc
 import apptpl.composeapp.generated.resources.user_saving_error
 import apptpl.composeapp.generated.resources.yes
+import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
@@ -142,11 +134,11 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                     vm.clearFirstNameError()
                 },
                 modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                labelText = anyResText(AnyRes(Res.string.first_name)),
-                placeHolderText = anyResText(AnyRes(Res.string.first_name)),
+                labelText = anyResText(AnyRes(PubRes.string.first_name)),
+                placeHolderText = anyResText(AnyRes(PubRes.string.first_name)),
                 leadingIcon = leadingIcon,
                 isError = vm.isErrorFirstName.value,
-                errorText = anyResText(AnyRes(Res.string.first_name_required)),
+                errorText = anyResText(AnyRes(PubRes.string.first_name_required)),
                 focusManager = focusManager
             )
             /**
@@ -159,11 +151,11 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                     vm.clearLastNameError()
                 },
                 modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                labelText = anyResText(AnyRes(Res.string.last_name)),
-                placeHolderText = anyResText(AnyRes(Res.string.last_name)),
+                labelText = anyResText(AnyRes(PubRes.string.last_name)),
+                placeHolderText = anyResText(AnyRes(PubRes.string.last_name)),
                 leadingIcon = leadingIcon,
                 isError = vm.isErrorLastName.value,
-                errorText = anyResText(AnyRes(Res.string.last_name_required)),
+                errorText = anyResText(AnyRes(PubRes.string.last_name_required)),
                 focusManager = focusManager
             )
             Row {
@@ -224,9 +216,9 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                     isError = vm.isErrorPass.value,
                     trailingIconPassOnClick = { vm.togglePassVisible() },
                     isPassVisible = vm.isPassVisible,
-                    labelText = anyResText(AnyRes(Res.string.password)),
-                    placeHolderText = anyResText(AnyRes(Res.string.password)),
-                    errorText = anyResText(AnyRes(Res.string.password_required)),
+                    labelText = anyResText(AnyRes(PubRes.string.password)),
+                    placeHolderText = anyResText(AnyRes(PubRes.string.password)),
+                    errorText = anyResText(AnyRes(PubRes.string.password_required)),
 
                     )
 
@@ -240,13 +232,13 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                     isError = vm.isErrorPassConfirm.value,
                     trailingIconPassOnClick = { vm.togglePassVisible() },
                     isPassVisible = vm.isPassVisible,
-                    labelText = anyResText(AnyRes(Res.string.password_confirmation)),
-                    placeHolderText = anyResText(AnyRes(Res.string.password_confirmation)),
-                    errorText = anyResText(AnyRes(Res.string.password_confirmation_required)),
+                    labelText = anyResText(AnyRes(PubRes.string.password_confirmation)),
+                    placeHolderText = anyResText(AnyRes(PubRes.string.password_confirmation)),
+                    errorText = anyResText(AnyRes(PubRes.string.password_confirmation_required)),
                 )
 
                 if (vm.isErrorPassDontMatch.value) {
-                    ErrorText(anyResText(AnyRes(Res.string.error_passwords_dont_match)))
+                    ErrorText(anyResText(AnyRes(PubRes.string.error_passwords_dont_match)))
                 }
 
             } else {

@@ -26,8 +26,8 @@ import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.LoginWidget
 import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeader
-import com.krzysobo.sobositeapp.viewmodel.getResetPasswordPageVM
 import com.krzysobo.sobositeapp.viewmodel.ResetPasswordPageVM
+import com.krzysobo.sobositeapp.viewmodel.getResetPasswordPageVM
 import kotlinx.coroutines.launch
 
 @Composable
@@ -46,7 +46,7 @@ fun PageSobositeResetPassword() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        item{
+        item {
             PageHeader(anyResText(AnyRes(Res.string.reset_your_password)))
         }
 

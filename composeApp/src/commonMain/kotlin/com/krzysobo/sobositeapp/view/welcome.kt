@@ -11,10 +11,10 @@ import apptpl.composeapp.generated.resources.Res
 import apptpl.composeapp.generated.resources.more_at_url_s
 import apptpl.composeapp.generated.resources.welcome_s
 import apptpl.composeapp.generated.resources.welcome_story_sobosite
-import com.krzysobo.sobositeapp.appVersion
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PageHeader
+import com.krzysobo.sobositeapp.appVersion
 
 
 @Composable

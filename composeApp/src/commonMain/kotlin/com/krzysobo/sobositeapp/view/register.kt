@@ -18,21 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.error_passwords_dont_match
 import apptpl.composeapp.generated.resources.error_registration_failure
-import apptpl.composeapp.generated.resources.first_name
-import apptpl.composeapp.generated.resources.first_name_required
-import apptpl.composeapp.generated.resources.last_name
-import apptpl.composeapp.generated.resources.last_name_required
-import apptpl.composeapp.generated.resources.password_confirmation
-import apptpl.composeapp.generated.resources.password_confirmation_required
 import apptpl.composeapp.generated.resources.register
 import apptpl.composeapp.generated.resources.registration_ok
 import apptpl.composeapp.generated.resources.registration_ok_desc
 import apptpl.composeapp.generated.resources.user_registration
-import apptpl.composeapp.generated.resources.your_first_name
-import apptpl.composeapp.generated.resources.your_last_name
-import apptpl.composeapp.generated.resources.your_password_confirmation
+import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
@@ -42,8 +33,8 @@ import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
-import com.krzysobo.sobositeapp.viewmodel.getRegisterPageVM
 import com.krzysobo.sobositeapp.viewmodel.RegisterPageVM
+import com.krzysobo.sobositeapp.viewmodel.getRegisterPageVM
 import kotlinx.coroutines.launch
 
 @Composable
@@ -79,15 +70,17 @@ fun PageSobositeRegister() {
 
         item {
 
-            if(vm.isFormSent.value) {
+            if (vm.isFormSent.value) {
                 MessageBox(
                     "* ${anyResText(AnyRes(Res.string.registration_ok))} *",
-                    anyResText(AnyRes(Res.string.registration_ok_desc)))
+                    anyResText(AnyRes(Res.string.registration_ok_desc))
+                )
             } else {
                 if (vm.isApiError.value) {
                     ErrorMessageBox(
                         "* ${anyResText(AnyRes(Res.string.error_registration_failure))} *",
-                        vm.apiErrorDetails.value)
+                        vm.apiErrorDetails.value
+                    )
                 }
 
                 val focusManager = LocalFocusManager.current
@@ -121,11 +114,11 @@ fun PageSobositeRegister() {
                         vm.clearFirstNameError()
                     },
                     modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                    labelText = anyResText(AnyRes(Res.string.first_name)),
-                    placeHolderText = anyResText(AnyRes(Res.string.your_first_name)),
+                    labelText = anyResText(AnyRes(PubRes.string.first_name)),
+                    placeHolderText = anyResText(AnyRes(PubRes.string.your_first_name)),
                     leadingIcon = leadingIcon,
                     isError = vm.isErrorFirstName.value,
-                    errorText = anyResText(AnyRes(Res.string.first_name_required)),
+                    errorText = anyResText(AnyRes(PubRes.string.first_name_required)),
                     focusManager = focusManager
                 )
 
@@ -139,11 +132,11 @@ fun PageSobositeRegister() {
                         vm.clearLastNameError()
                     },
                     modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                    labelText = anyResText(AnyRes(Res.string.last_name)),
-                    placeHolderText = anyResText(AnyRes(Res.string.your_last_name)),
+                    labelText = anyResText(AnyRes(PubRes.string.last_name)),
+                    placeHolderText = anyResText(AnyRes(PubRes.string.your_last_name)),
                     leadingIcon = leadingIcon,
                     isError = vm.isErrorLastName.value,
-                    errorText = anyResText(AnyRes(Res.string.last_name_required)),
+                    errorText = anyResText(AnyRes(PubRes.string.last_name_required)),
                     focusManager = focusManager
                 )
 
@@ -151,34 +144,34 @@ fun PageSobositeRegister() {
                  * Password
                  */
                 PasswordWidget(
-                    value=vm.pass.value,
+                    value = vm.pass.value,
                     onValueChanges = { data: String ->
                         vm.pass.value = data
                         vm.clearPassError()
                         vm.checkPassMatch()
                     },
                     isError = vm.isErrorPass.value,
-                    trailingIconPassOnClick={ vm.togglePassVisible()},
-                    isPassVisible=vm.isPassVisible,
+                    trailingIconPassOnClick = { vm.togglePassVisible() },
+                    isPassVisible = vm.isPassVisible,
                 )
 
                 PasswordWidget(
-                    value=vm.passConfirm.value,
+                    value = vm.passConfirm.value,
                     onValueChanges = { data: String ->
                         vm.passConfirm.value = data
                         vm.clearPassConfirmError()
                         vm.checkPassMatch()
                     },
                     isError = vm.isErrorPassConfirm.value,
-                    trailingIconPassOnClick={ vm.togglePassVisible()},
-                    isPassVisible=vm.isPassVisible,
-                    labelText = anyResText(AnyRes(Res.string.password_confirmation)),
-                    placeHolderText = anyResText(AnyRes(Res.string.your_password_confirmation)),
-                    errorText = anyResText(AnyRes(Res.string.password_confirmation_required)),
+                    trailingIconPassOnClick = { vm.togglePassVisible() },
+                    isPassVisible = vm.isPassVisible,
+                    labelText = anyResText(AnyRes(PubRes.string.password_confirmation)),
+                    placeHolderText = anyResText(AnyRes(PubRes.string.your_password_confirmation)),
+                    errorText = anyResText(AnyRes(PubRes.string.password_confirmation_required)),
                 )
 
                 if (vm.isErrorPassDontMatch.value) {
-                    ErrorText(anyResText(AnyRes(Res.string.error_passwords_dont_match)))
+                    ErrorText(anyResText(AnyRes(PubRes.string.error_passwords_dont_match)))
                 }
 
                 Button(

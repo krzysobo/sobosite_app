@@ -26,15 +26,12 @@ import apptpl.composeapp.generated.resources.confirm_password_reset
 import apptpl.composeapp.generated.resources.confirm_password_reset_long
 import apptpl.composeapp.generated.resources.error_password_reset_confirmation_error
 import apptpl.composeapp.generated.resources.error_password_reset_confirmation_error_desc
-import apptpl.composeapp.generated.resources.error_passwords_dont_match
-import apptpl.composeapp.generated.resources.password_confirmation
-import apptpl.composeapp.generated.resources.password_confirmation_required
 import apptpl.composeapp.generated.resources.password_reset_ok
 import apptpl.composeapp.generated.resources.password_reset_ok_desc
 import apptpl.composeapp.generated.resources.token
 import apptpl.composeapp.generated.resources.token_required
-import apptpl.composeapp.generated.resources.your_password_confirmation
 import apptpl.composeapp.generated.resources.your_token
+import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
@@ -44,8 +41,8 @@ import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
-import com.krzysobo.sobositeapp.viewmodel.getResetPasswordConfirmPageVM
 import com.krzysobo.sobositeapp.viewmodel.ResetPasswordConfirmPageVM
+import com.krzysobo.sobositeapp.viewmodel.getResetPasswordConfirmPageVM
 import kotlinx.coroutines.launch
 
 @Composable
@@ -174,13 +171,13 @@ fun PageSobositeResetPasswordConfirm() {
                     isError = vm.isErrorPassConfirm.value,
                     trailingIconPassOnClick = { vm.togglePassVisible() },
                     isPassVisible = vm.isPassVisible,
-                    labelText = anyResText(AnyRes(Res.string.password_confirmation)),
-                    placeHolderText = anyResText(AnyRes(Res.string.your_password_confirmation)),
-                    errorText = anyResText(AnyRes(Res.string.password_confirmation_required)),
+                    labelText = anyResText(AnyRes(PubRes.string.password_confirmation)),
+                    placeHolderText = anyResText(AnyRes(PubRes.string.your_password_confirmation)),
+                    errorText = anyResText(AnyRes(PubRes.string.password_confirmation_required)),
                 )
 
                 if (vm.isErrorPassDontMatch.value) {
-                    ErrorText(anyResText(AnyRes(Res.string.error_passwords_dont_match)))
+                    ErrorText(anyResText(AnyRes(PubRes.string.error_passwords_dont_match)))
                 }
 
 

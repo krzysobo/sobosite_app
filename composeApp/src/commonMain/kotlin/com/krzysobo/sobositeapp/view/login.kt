@@ -72,11 +72,11 @@ fun PageSobositeLogin() {
         }
 
         item {
-            if(vm.isFormSent.value) {
+            if (vm.isFormSent.value) {
                 SoboRouter.navigateToLoggedInUserHome()
             } else {
-                val resLoginError = anyResText(AnyRes(Res.string.error_login_error ))
-                if(vm.isAuthError.value) {
+                val resLoginError = anyResText(AnyRes(Res.string.error_login_error))
+                if (vm.isAuthError.value) {
                     val errorText = buildAnnotatedString {
                         append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p1)))
                         withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
@@ -90,8 +90,9 @@ fun PageSobositeLogin() {
                     }
                     ErrorMessageBox("* $resLoginError *", errorText)
                 } else if (vm.isApiError.value) {
-                    val errorText = if (vm.apiErrorDetails.value != "") vm.apiErrorDetails.value else
-                        anyResText(AnyRes(Res.string.error_unknown_error))
+                    val errorText =
+                        if (vm.apiErrorDetails.value != "") vm.apiErrorDetails.value else
+                            anyResText(AnyRes(Res.string.error_unknown_error))
                     ErrorMessageBox("* $resLoginError *", errorText)
                 }
 
@@ -113,15 +114,15 @@ fun PageSobositeLogin() {
                  * Password
                  */
                 PasswordWidget(
-                    value=vm.pass.value,
+                    value = vm.pass.value,
                     onValueChanges = { data: String ->
 //                    println("password value change $data")
                         vm.pass.value = data
                         vm.clearPassError()
                     },
                     isError = vm.isErrorPass.value,
-                    trailingIconPassOnClick={ vm.togglePassVisible()},
-                    isPassVisible=vm.isPassVisible,
+                    trailingIconPassOnClick = { vm.togglePassVisible() },
+                    isPassVisible = vm.isPassVisible,
                 )
 
 

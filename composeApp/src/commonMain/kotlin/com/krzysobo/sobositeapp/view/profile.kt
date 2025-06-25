@@ -23,27 +23,12 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import apptpl.composeapp.generated.resources.Res
 import apptpl.composeapp.generated.resources.close_password_edition
-import apptpl.composeapp.generated.resources.current_password
-import apptpl.composeapp.generated.resources.current_password_required
-import apptpl.composeapp.generated.resources.error_passwords_dont_match
 import apptpl.composeapp.generated.resources.error_profile_updating_error
-import apptpl.composeapp.generated.resources.first_name
-import apptpl.composeapp.generated.resources.first_name_required
-import apptpl.composeapp.generated.resources.last_name
-import apptpl.composeapp.generated.resources.last_name_required
-import apptpl.composeapp.generated.resources.new_password
-import apptpl.composeapp.generated.resources.new_password_confirmation
-import apptpl.composeapp.generated.resources.new_password_confirmation_required
-import apptpl.composeapp.generated.resources.new_password_required
 import apptpl.composeapp.generated.resources.open_password_edition
 import apptpl.composeapp.generated.resources.profile_updated
 import apptpl.composeapp.generated.resources.profile_updated_ok
 import apptpl.composeapp.generated.resources.update_profile
-import apptpl.composeapp.generated.resources.your_current_password
-import apptpl.composeapp.generated.resources.your_first_name
-import apptpl.composeapp.generated.resources.your_last_name
-import apptpl.composeapp.generated.resources.your_new_password
-import apptpl.composeapp.generated.resources.your_new_password_confirmation
+import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
@@ -52,9 +37,9 @@ import com.krzysobo.soboapptpl.widgets.LoginWidget
 import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
+import com.krzysobo.sobositeapp.viewmodel.ProfilePageVM
 import com.krzysobo.sobositeapp.viewmodel.getProfilePageVM
 import com.krzysobo.sobositeapp.viewmodel.getUserStateVM
-import com.krzysobo.sobositeapp.viewmodel.ProfilePageVM
 import kotlinx.coroutines.launch
 
 @Composable
@@ -97,14 +82,16 @@ fun PageSobositeProfile() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         item {
-            if(vm.isFormSent.value) {
+            if (vm.isFormSent.value) {
                 MessageBox(
                     "* ${anyResText(AnyRes(Res.string.profile_updated))} *",
-                    anyResText(AnyRes(Res.string.profile_updated_ok)))
-            }else if(vm.isApiError.value) {
+                    anyResText(AnyRes(Res.string.profile_updated_ok))
+                )
+            } else if (vm.isApiError.value) {
                 ErrorMessageBox(
                     "* ${anyResText(AnyRes(Res.string.error_profile_updating_error))} *",
-                    vm.apiErrorDetails.value)
+                    vm.apiErrorDetails.value
+                )
             }
         }
 
@@ -160,11 +147,11 @@ fun PageSobositeProfile() {
                     vm.clearFirstNameError()
                 },
                 modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                labelText = anyResText(AnyRes(Res.string.first_name)),
-                placeHolderText = anyResText(AnyRes(Res.string.your_first_name)),
+                labelText = anyResText(AnyRes(PubRes.string.first_name)),
+                placeHolderText = anyResText(AnyRes(PubRes.string.your_first_name)),
                 leadingIcon = leadingIcon,
                 isError = vm.isErrorFirstName.value,
-                errorText = anyResText(AnyRes(Res.string.first_name_required)),
+                errorText = anyResText(AnyRes(PubRes.string.first_name_required)),
                 focusManager = focusManager
             )
 
@@ -178,11 +165,11 @@ fun PageSobositeProfile() {
                     vm.clearLastNameError()
                 },
                 modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                labelText = anyResText(AnyRes(Res.string.last_name)),
-                placeHolderText = anyResText(AnyRes(Res.string.your_last_name)),
+                labelText = anyResText(AnyRes(PubRes.string.last_name)),
+                placeHolderText = anyResText(AnyRes(PubRes.string.your_last_name)),
                 leadingIcon = leadingIcon,
                 isError = vm.isErrorLastName.value,
-                errorText = anyResText(AnyRes(Res.string.last_name_required)),
+                errorText = anyResText(AnyRes(PubRes.string.last_name_required)),
                 focusManager = focusManager
             )
 
@@ -208,9 +195,9 @@ fun PageSobositeProfile() {
                     isError = vm.isErrorNewPassword.value,
                     trailingIconPassOnClick = { vm.togglePassVisible() },
                     isPassVisible = vm.isPassVisible,
-                    labelText = anyResText(AnyRes(Res.string.new_password)),
-                    placeHolderText = anyResText(AnyRes(Res.string.your_new_password)),
-                    errorText = anyResText(AnyRes(Res.string.new_password_required)),
+                    labelText = anyResText(AnyRes(PubRes.string.new_password)),
+                    placeHolderText = anyResText(AnyRes(PubRes.string.your_new_password)),
+                    errorText = anyResText(AnyRes(PubRes.string.new_password_required)),
 
                     )
 
@@ -224,13 +211,13 @@ fun PageSobositeProfile() {
                     isError = vm.isErrorNewPasswordConfirm.value,
                     trailingIconPassOnClick = { vm.togglePassVisible() },
                     isPassVisible = vm.isPassVisible,
-                    labelText = anyResText(AnyRes(Res.string.new_password_confirmation)),
-                    placeHolderText = anyResText(AnyRes(Res.string.your_new_password_confirmation)),
-                    errorText = anyResText(AnyRes(Res.string.new_password_confirmation_required)),
+                    labelText = anyResText(AnyRes(PubRes.string.new_password_confirmation)),
+                    placeHolderText = anyResText(AnyRes(PubRes.string.your_new_password_confirmation)),
+                    errorText = anyResText(AnyRes(PubRes.string.new_password_confirmation_required)),
                 )
 
                 if (vm.isErrorNewPasswordsDontMatch.value) {
-                    ErrorText(anyResText(AnyRes(Res.string.error_passwords_dont_match)))
+                    ErrorText(anyResText(AnyRes(PubRes.string.error_passwords_dont_match)))
                 }
 
                 PasswordWidget(
@@ -243,9 +230,9 @@ fun PageSobositeProfile() {
                     isError = vm.isErrorOldPassword.value,
                     trailingIconPassOnClick = { vm.togglePassVisible() },
                     isPassVisible = vm.isPassVisible,
-                    labelText = anyResText(AnyRes(Res.string.current_password)),
-                    placeHolderText = anyResText(AnyRes(Res.string.your_current_password)),
-                    errorText = anyResText(AnyRes(Res.string.current_password_required)),
+                    labelText = anyResText(AnyRes(PubRes.string.current_password)),
+                    placeHolderText = anyResText(AnyRes(PubRes.string.your_current_password)),
+                    errorText = anyResText(AnyRes(PubRes.string.current_password_required)),
                 )
 
             } else {
