@@ -22,13 +22,11 @@
     <string name="home">Home</string>
 
     <string name="go_back">Go back</string>
-    <string name="login">Login</string>
-    <string name="log_in">Log In</string>
+
     <string name="login_page">Login Page</string>
     <string name="api_prefix_s">API PREFIX: %1$s</string>
     <string name="api_test_sd">API TEST PREFIX: %1$s count: %2$d</string>
 
-    <string name="logout">Logout</string>
     <string name="register">Register</string>
     <string name="user_registration">User Registration</string>
     <string name="registration_confirmation">Registration Confirmation</string>
@@ -169,43 +167,6 @@
     <string name="no">NO</string>
     <string name="ok">OK</string>
     <string name="cancel">CANCEL</string>
-
-
-    <string name="email">Email</string>
-    <string name="full_name">Name</string>
-
-    <string name="first_name">First name</string>
-    <string name="your_first_name">Your first name</string>
-    <string name="first_name_required">First name is required</string>
-
-    <string name="last_name">Last name</string>
-    <string name="your_last_name">Your last name</string>
-    <string name="last_name_required">Last name is required</string>
-
-    <string name="username">Username</string>
-    <string name="your_username">Your username</string>
-    <string name="username_required">Username is required</string>
-
-    <string name="password">Password</string>
-    <string name="your_password">Your password</string>
-    <string name="password_required">Password is required</string>
-
-    <string name="password_confirmation">Password confirmation</string>
-    <string name="your_password_confirmation">Your password confirmation</string>
-    <string name="password_confirmation_required">Password confirmation is required</string>
-
-    <string name="current_password">Current password</string>
-    <string name="your_current_password">Your current password</string>
-    <string name="current_password_required">Current password is required</string>
-
-    <string name="new_password">New password</string>
-    <string name="your_new_password">Your new password</string>
-    <string name="new_password_required">New password is required</string>
-
-    <string name="new_password_confirmation">New password confirmation</string>
-    <string name="your_new_password_confirmation">Your new password confirmation</string>
-    <string name="new_password_confirmation_required">New password confirmation is required</string>
-    <string name="error_passwords_dont_match">Passwords don't match.</string>
 
 
 

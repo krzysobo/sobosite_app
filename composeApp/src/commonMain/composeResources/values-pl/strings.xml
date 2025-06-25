@@ -23,13 +23,16 @@
     <string name="home">Dom</string>
 
     <string name="go_back">Cofnij</string>
+    
     <string name="login">Zaloguj się</string>
     <string name="log_in">Zaloguj się</string>
+    <string name="logout">Wyloguj</string>
+
+
     <string name="login_page">Strona logowania</string>
     <string name="api_prefix_s">Prefiks API: %1$s</string>
     <string name="api_test_sd">API TEST PREFIX: %1$s count: %2$d</string>
 
-    <string name="logout">Wyloguj</string>
     <string name="register">Zarejestruj się</string>
     <string name="user_registration">Rejestracja użytkownika</string>
     <string name="registration_confirmation">Potwierdzenie rejestracji</string>
@@ -172,41 +175,6 @@
     <string name="cancel">ANULUJ</string>
 
 
-    <string name="email">Email</string>
-    <string name="full_name">Imię i nazwisko</string>
-
-    <string name="first_name">Imię</string>
-    <string name="your_first_name">Twoje imię</string>
-    <string name="first_name_required">Imię jest wymagane</string>
-
-    <string name="last_name">Nazwisko</string>
-    <string name="your_last_name">Twoje nazwisko</string>
-    <string name="last_name_required">Nazwisko jest wymagane</string>
-
-    <string name="username">Nazwa użytkownika</string>
-    <string name="your_username">Twoja nazwa użytkownika</string>
-    <string name="username_required">Nazwa użytkownika jest wymagana</string>
-
-    <string name="password">Hasło</string>
-    <string name="your_password">Twoje hasło</string>
-    <string name="password_required">Hasło jest wymagane</string>
-
-    <string name="password_confirmation">Potwierdzenie hasła</string>
-    <string name="your_password_confirmation">Twoje potwierdzenie hasła</string>
-    <string name="password_confirmation_required">Potwierdzenie hasła jest wymagane</string>
-
-    <string name="current_password">Aktualne hasło</string>
-    <string name="your_current_password">Twoje aktualne hasło</string>
-    <string name="current_password_required">Aktualne hasło jest wymagane</string>
-
-    <string name="new_password">Nowe hasło</string>
-    <string name="your_new_password">Twoje nowe hasło</string>
-    <string name="new_password_required">Nowe hasło jest wymagane</string>
-
-    <string name="new_password_confirmation">Potwierdzenie nowego hasła</string>
-    <string name="your_new_password_confirmation">Potwierdzenie nowego hasła</string>
-    <string name="new_password_confirmation_required">Potwierdzenie nowego hasła jest wymagane</string>
-    <string name="error_passwords_dont_match">Hasła się różnią.</string>
 
 
 
