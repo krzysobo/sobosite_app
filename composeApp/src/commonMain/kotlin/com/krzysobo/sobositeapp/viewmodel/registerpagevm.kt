@@ -71,8 +71,13 @@ class RegisterPageVM : SoboViewModel(
             isApiError.value = true
             apiErrorDetails.value = "A network error has occurred. " +
                     "Please check your internet connection."
+        } catch (e: Exception) {
+            isFormSent.value = false
+            isApiError.value = true
+            apiErrorDetails.value = "An error has occurred. " +
+                    "Please check your internet connection. Message: ${e.message}"
         }
-
+        
         toggleRefreshCompose()
         return false
     }

@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
+import com.krzysobo.soboapptpl.pubres.PubRes
 import sobositeapp.composeapp.generated.resources.Res
 import sobositeapp.composeapp.generated.resources.api_host_url
 import sobositeapp.composeapp.generated.resources.api_host_url_desc
@@ -24,10 +25,6 @@ import sobositeapp.composeapp.generated.resources.api_host_url_required
 import sobositeapp.composeapp.generated.resources.api_prefix
 import sobositeapp.composeapp.generated.resources.api_prefix_desc
 import sobositeapp.composeapp.generated.resources.api_prefix_required
-import sobositeapp.composeapp.generated.resources.settings_updated_ok
-import sobositeapp.composeapp.generated.resources.settings_updated_ok_desc
-import sobositeapp.composeapp.generated.resources.settings_updating_error
-import sobositeapp.composeapp.generated.resources.update_settings
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
@@ -71,12 +68,12 @@ fun PageSobositeSettings() {
     ) {
         if (vm.isFormSent.value) {
             MessageBox(
-                "* ${anyResText(AnyRes(Res.string.settings_updated_ok))} *",
-                anyResText(AnyRes(Res.string.settings_updated_ok_desc))
+                "* ${anyResText(AnyRes(PubRes.string.settings_updated_ok))} *",
+                anyResText(AnyRes(PubRes.string.settings_updated_ok_desc))
             )
         } else if (vm.isApiError.value) {
             ErrorMessageBox(
-                "* ${anyResText(AnyRes(Res.string.settings_updating_error))} *",
+                "* ${anyResText(AnyRes(PubRes.string.settings_updating_error))} *",
                 vm.apiErrorDetails.value
             )
         }
@@ -144,6 +141,6 @@ fun PageSobositeSettings() {
                 }
             },
             modifier = Modifier.padding(all = 10.dp)
-        ) { Text(anyResText(AnyRes(Res.string.update_settings))) }
+         ) { Text(anyResText(AnyRes(PubRes.string.update_settings))) }
     }
 }
