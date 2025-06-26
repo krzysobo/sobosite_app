@@ -1,18 +1,15 @@
 package com.krzysobo.sobositeapp.settings
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.about
-import apptpl.composeapp.generated.resources.dashboard
-import apptpl.composeapp.generated.resources.help
-import apptpl.composeapp.generated.resources.login
-import apptpl.composeapp.generated.resources.profile
-import apptpl.composeapp.generated.resources.register
-import apptpl.composeapp.generated.resources.register_confirm
-import apptpl.composeapp.generated.resources.reset_pass
-import apptpl.composeapp.generated.resources.reset_pass_confirm
-import apptpl.composeapp.generated.resources.settings
-import apptpl.composeapp.generated.resources.user_edition
-import apptpl.composeapp.generated.resources.users
-import apptpl.composeapp.generated.resources.welcome
+import com.krzysobo.soboapptpl.pubres.PubRes
+import sobositeapp.composeapp.generated.resources.Res
+import sobositeapp.composeapp.generated.resources.dashboard
+import sobositeapp.composeapp.generated.resources.profile
+import sobositeapp.composeapp.generated.resources.register
+import sobositeapp.composeapp.generated.resources.register_confirm
+import sobositeapp.composeapp.generated.resources.reset_pass
+import sobositeapp.composeapp.generated.resources.reset_pass_confirm
+import sobositeapp.composeapp.generated.resources.user_edition
+import sobositeapp.composeapp.generated.resources.users
+import sobositeapp.composeapp.generated.resources.welcome
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.AppRequest
 import com.krzysobo.soboapptpl.service.SoboRoute
@@ -103,7 +100,7 @@ val sobositeRoutes = listOf(
     ),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.LOGIN.value,
-        AnyRes(Res.string.login),
+        AnyRes(PubRes.string.login),
         { PageSobositeLogin() },
         perms = listOf(USER_ROLE.ANON_ONLY)
     ),
@@ -133,15 +130,15 @@ val sobositeRoutes = listOf(
     ),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.ABOUT.value,
-        AnyRes(Res.string.about),
+        AnyRes(PubRes.string.about),
         { PageAboutSobosite() }),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.HELP.value,
-        AnyRes(Res.string.help),
+        AnyRes(PubRes.string.help),
         { PageHelpSobosite() }),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.SETTINGS.value,
-        AnyRes(Res.string.settings),
+        AnyRes(PubRes.string.settings),
         { PageSobositeSettings() }),
 
 )

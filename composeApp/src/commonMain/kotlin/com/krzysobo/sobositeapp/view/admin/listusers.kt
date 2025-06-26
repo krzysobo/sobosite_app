@@ -6,14 +6,13 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.error_api_error
-import apptpl.composeapp.generated.resources.no
-import apptpl.composeapp.generated.resources.user_deletion_ok
-import apptpl.composeapp.generated.resources.user_deletion_ok_desc
-import apptpl.composeapp.generated.resources.user_deletion_qs
-import apptpl.composeapp.generated.resources.user_deletion_s
-import apptpl.composeapp.generated.resources.yes
+import com.krzysobo.soboapptpl.pubres.PubRes
+import sobositeapp.composeapp.generated.resources.Res
+import sobositeapp.composeapp.generated.resources.error_api_error
+import sobositeapp.composeapp.generated.resources.user_deletion_ok
+import sobositeapp.composeapp.generated.resources.user_deletion_ok_desc
+import sobositeapp.composeapp.generated.resources.user_deletion_qs
+import sobositeapp.composeapp.generated.resources.user_deletion_s
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
@@ -49,8 +48,8 @@ fun deletionDialog(vm: AdminListUsersPageVM, coroutineScope: CoroutineScope) {
                     arrayOf(userToDelete.email, userToDelete.first_name, userToDelete.last_name)
                 )
             ),
-            confirmButtonText = anyResText(AnyRes(Res.string.yes)),
-            dismissButtonText = anyResText(AnyRes(Res.string.no))
+            confirmButtonText = anyResText(AnyRes(PubRes.string.yes)),
+            dismissButtonText = anyResText(AnyRes(PubRes.string.no))
         )
     }
 }

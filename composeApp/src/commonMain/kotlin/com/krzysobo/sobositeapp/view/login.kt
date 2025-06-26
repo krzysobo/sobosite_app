@@ -18,19 +18,19 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.api_prefix_s
-import apptpl.composeapp.generated.resources.error_bad_credentials_long_p1
-import apptpl.composeapp.generated.resources.error_bad_credentials_long_p2
-import apptpl.composeapp.generated.resources.error_bad_credentials_long_p3
-import apptpl.composeapp.generated.resources.error_bad_credentials_long_p4
-import apptpl.composeapp.generated.resources.error_bad_credentials_long_p5
-import apptpl.composeapp.generated.resources.error_login_error
-import apptpl.composeapp.generated.resources.error_unknown_error
-import apptpl.composeapp.generated.resources.log_in
-import apptpl.composeapp.generated.resources.login_page
-import apptpl.composeapp.generated.resources.register
-import apptpl.composeapp.generated.resources.reset_pass
+import com.krzysobo.soboapptpl.pubres.PubRes
+import sobositeapp.composeapp.generated.resources.Res
+import sobositeapp.composeapp.generated.resources.api_prefix_s
+import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p1
+import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p2
+import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p3
+import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p4
+import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p5
+import sobositeapp.composeapp.generated.resources.error_login_error
+import sobositeapp.composeapp.generated.resources.error_unknown_error
+import sobositeapp.composeapp.generated.resources.login_page
+import sobositeapp.composeapp.generated.resources.register
+import sobositeapp.composeapp.generated.resources.reset_pass
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.soboapptpl.service.anyResText
@@ -139,7 +139,7 @@ fun PageSobositeLogin() {
                             }
                         },
                         modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.log_in))) }
+                    ) { Text(anyResText(AnyRes(PubRes.string.log_in))) }
 
                     Button(
                         onClick = {

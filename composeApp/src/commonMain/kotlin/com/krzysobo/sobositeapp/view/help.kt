@@ -7,9 +7,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.help_s
-import apptpl.composeapp.generated.resources.more_at_url_s
+import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PageHeader
@@ -24,15 +22,15 @@ fun PageHelpSobosite() {
             .padding(all = 32.dp)
     ) {
         item {
-            PageHeader(anyResText(AnyRes(Res.string.help_s, arrayOf("Sobosite"))))
+            PageHeader(anyResText(AnyRes(PubRes.string.help_s, arrayOf("Sobosite"))))
         }
 
         item {
-            Text(anyResText(AnyRes(Res.string.help_s, arrayOf("Sobosite v. $appVersion"))))
+            Text(anyResText(AnyRes(PubRes.string.help_s, arrayOf("Sobosite v. $appVersion"))))
             Text(
                 anyResText(
                     AnyRes(
-                        Res.string.more_at_url_s,
+                        PubRes.string.more_at_url_s,
                         arrayOf("https://github.com/krzysobo/sobosite_app/blob/main/README.md")
                     )
                 )

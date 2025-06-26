@@ -11,23 +11,8 @@
         przypominania hasła i zarządzania użytkownikami.
     </string>
 
-    <string name="welcome_story_sobo_crypto_center">Witamy w aplikacji Sobo Crypto Center.
-        Służy ona do szyfrowania i odszyfrowywania tekstu z użyciem algorytmów AES-GCM (symetryczny),
-        Diffie-Hellman's (hybrydowy) oraz RSA-AES (hybrydowy).
-    </string>
-
     <string name="app_name_sobosite_desktop">Sobosite Desktop App</string>
-    <string name="app_name_sobo_crypto_center_desktop">Sobo Crypto Center Desktop App</string>
     <string name="app_name_android">Sobosite App</string>
-
-    <string name="home">Dom</string>
-
-    <string name="go_back">Cofnij</string>
-    
-    <string name="login">Zaloguj się</string>
-    <string name="log_in">Zaloguj się</string>
-    <string name="logout">Wyloguj</string>
-
 
     <string name="login_page">Strona logowania</string>
     <string name="api_prefix_s">Prefiks API: %1$s</string>
@@ -68,7 +53,6 @@
     </string>
 
 
-
     <string name="reset_pass">Zresetuj hasło</string>
     <string name="reset_your_password">Zresetuj swoje hasło</string>
     <string name="reset_pass_confirm">Potwierdź reset hasła</string>
@@ -100,10 +84,6 @@
     <string name="open_password_edition">Otwórz edycję hasła</string>
     <string name="close_password_edition">Zamknij edycję hasła</string>
 
-    <string name="update_settings">Zaktualizuj ustawienia</string>
-    <string name="settings_updated_ok">Pomyślna aktualizacja ustawień.</string>
-    <string name="settings_updated_ok_desc">Ustawienia zostały pomyślnie zaktualizowane.</string>
-    <string name="settings_updating_error">Błąd aktualizacji ustawień</string>
     <string name="api_host_url">API Host URL</string>
     <string name="api_host_url_desc">API Host URL, np. http://localhost:9000/</string>
     <string name="api_host_url_required">API Host URL jest wymagany</string>
@@ -126,9 +106,6 @@
 
     <string name="create_user">Utwórz konto użytkownika</string>
 
-
-    <string name="actions">Akcje</string>
-
     <string name="user_deletion_ok">POMYŚLNE SKASOWANIE KONTA</string>
     <string name="user_deletion_ok_desc">Konto użytkownika zostało pomyślnie skasowane.</string>
 
@@ -137,46 +114,8 @@
         Delete the user account %1$s (%2$s %3$s)?
     </string>
 
-
-    <string name="s_about">%1$s - O programie</string>
-    <string name="s_help">%1$s - Pomoc</string>
-    <string name="s_settings">%1$s - Ustawienia</string>
-
-
-    <string name="about">Informacje</string>
-    <string name="about_s">Informacje o %1$s</string>
-    <string name="help">Pomoc</string>
-    <string name="help_s">Pomoc %1$s</string>
-    <string name="more_at_url_s">Więcej pod: %1$s</string>
-
-    <string name="settings">Ustawienia</string>
     <string name="users">Użytkownicy</string>
     <string name="user_edition">Edycja użytkownika</string>
-    <string name="list">Lista</string>
-    <string name="edit">Edytuj</string>
-    <string name="delete">Usuń</string>
-
-
-    <string name="open_menu">Otwórz menu</string>
-    <string name="close_menu">Zamknij menu</string>
-    <string name="contact_info">Info. kontaktowe</string>
-    <string name="color_scheme">Kolory: %1$s</string>
-    <string name="color_scheme_dark">Kolory: CIEMNE</string>
-    <string name="color_scheme_light">Kolory: JASNE</string>
-    <string name="dark">CIEMNE</string>
-    <string name="light">JASNE</string>
-    <string name="total_items_n">Liczba pozycji: %1$d</string>
-    <string name="page_size">Rozmiar strony: </string>
-    <string name="back">WSTECZ</string>
-    <string name="forward">NAPRZÓD</string>
-    <string name="yes">TAK</string>
-    <string name="no">NIE</string>
-    <string name="ok">OK</string>
-    <string name="cancel">ANULUJ</string>
-
-
-
-
 
 
     <!-- errors -->
@@ -224,121 +163,8 @@
     <string name="error_unknown_error">Wystąpił nieznany błąd API, proszę skontaktować się z administratorem.</string>
     <string name="error_profile_updating_error">BŁĄD AKTUALIZACJI PROFILU</string>
 
-
-
-    <!-- secure notes  -->
-
-    <!-- crypto center -->
-    <string name="encrypt">Zaszyfruj</string>
-
-    <string name="decrypt">Odszyfruj</string>
-
-
-    <!-- proper names - DO NOT TRANSLATE -->
-    <string name="essbase">Essbase</string>
-    <string name="pyrite">Pyrite</string>
-    <string name="aws_s3">AWS S3</string>
-
-
     <string name="desc_sobosite_dashboard">
         To jest szablon aplikacji Sobosite, prosimy o modyfikowanie i dostosowywanie go do swoich potrzeb.
         Prosimy także pamiętać, że celem Dashboardu (strony domowej) jest zapewnienie użytkownikowi 'jego miejsca' w serwisie.
     </string>
-
-
-    <string name="language">
-        Język
-    </string>
-
-    <string name="use_device_language">
-        Używaj języka systemowego
-    </string>
-
-    <string name="plaintext">
-        Tekst jawny
-    </string>
-
-    <string name="plaintext_required">
-        Tekst jawny jest wymagany
-    </string>
-
-    <string name="secret_key_hex">
-        Tajny klucz szyfrujący
-    </string>
-
-    <string name="secret_key_hex_required">
-        Tajny klucz szyfrujący jest wymagany: można go wkleić (hex), wygenerować lub wyprowadzić z hasła.
-    </string>
-
-    <string name="cipher_text_hex">
-        Tekst zaszyfrowany (hex)
-    </string>
-
-    <string name="encryption_error_header">
-        BŁĄD SZYFROWANIA
-    </string>
-
-    <string name="decryption_error_header">
-        BŁĄD DESZYFROWANIA
-    </string>
-
-    <string name="copy_result_ciphertext">
-        Skopiuj treść zaszyfrowaną
-    </string>
-
-    <string name="copy_result_plaintext">
-        Skopiuj treść odszyfrowaną
-    </string>
-
-
-    <string name="get_secret_key">
-        UZYSKAJ KLUCZ SZYFRUJĄCY:
-    </string>
-
-    <string name="generate_random">
-        Wygeneruj losowy
-    </string>
-
-    <string name="from_password">
-        Z hasła
-    </string>
-
-    <string name="paste">
-        Wklej
-    </string>
-
-    <string name="paste_plaintext">
-        Wklej otwarty tekst ze schowka
-    </string>
-
-    <string name="paste_ciphertext">
-        Wklej treść zaszyfrowaną ze schowka
-    </string>
-
-    <string name="copy">
-        Skopiuj
-    </string>
-
-    <string name="clear_all">
-        Wyczyść wszystko
-    </string>
-
-    <string name="copy_hex_key">
-        Skopiuj klucz szyfrujący
-    </string>
-
-    <string name="paste_hex_key">
-        Wklej klucz szyfrujący ze schowka
-    </string>
-
-    <string name="cryptocenter_decryption">
-        Sobo Crypto Center - Deszyfrowanie
-    </string>
-
-    <string name="cryptocenter_encryption">
-        Sobo Crypto Center - Szyfrowanie
-    </string>
-
-
-
 </resources>

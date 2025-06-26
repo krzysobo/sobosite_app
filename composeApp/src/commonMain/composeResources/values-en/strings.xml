@@ -1,16 +1,10 @@
 <resources>
     <string name="app_name">Sobosite App</string>
-    <string name="welcome_s">Welcome %1$s</string>
-    <string name="welcome">Welcome page</string>
     <string name="welcome_story_sobosite">Welcome to the Sobosite application.
         It is a template on which you can develop your own client-server applications, cooperating by default with a backend based on the
         Sobosite Project. This template will be useful for anyone who wants to develop applications
         based on the client-server architecture, requiring login, registration,
         password reminders and user management.
-    </string>
-    <string name="welcome_story_sobo_crypto_center">Witamy w aplikacji Sobo Crypto Center.
-        Służy ona do szyfrowania i odszyfrowywania tekstu z użyciem algorytmów AES-GCM (symetryczny),
-        Diffie-Hellman's (hybrydowy) oraz RSA-AES (hybrydowy).
     </string>
 
     <string name="app_name_sobosite_desktop">Sobosite Desktop App</string>
@@ -18,9 +12,6 @@
 
     <string name="app_name_android">Sobosite App</string>
 
-    <string name="home">Home</string>
-
-    <string name="go_back">Go back</string>
     <string name="login_page">Login Page</string>
     <string name="api_prefix_s">API PREFIX: %1$s</string>
     <string name="api_test_sd">API TEST PREFIX: %1$s count: %2$d</string>
@@ -91,10 +82,6 @@
     <string name="open_password_edition">Open password edition</string>
     <string name="close_password_edition">Close password edition</string>
 
-    <string name="update_settings">Update Settings</string>
-    <string name="settings_updated_ok">Settings Updated OK</string>
-    <string name="settings_updated_ok_desc">Your settings have been successfully updated.</string>
-    <string name="settings_updating_error">Settings Updating Error</string>
     <string name="api_host_url">API Host URL</string>
     <string name="api_host_url_desc">API Host URL, eg. http://localhost:9000/</string>
     <string name="api_host_url_required">API Host URL is required</string>
@@ -117,9 +104,6 @@
 
     <string name="create_user">Create a user</string>
 
-
-    <string name="actions">Actions</string>
-
     <string name="user_deletion_ok">USER ACCOUNT DELETION OK</string>
     <string name="user_deletion_ok_desc">The user account has been successfully deleted.</string>
 
@@ -128,46 +112,8 @@
         Delete the user account %1$s (%2$s %3$s)?
     </string>
 
-
-    <string name="s_about">%1$s - About</string>
-    <string name="s_help">%1$s - Help</string>
-    <string name="s_settings">%1$s - Settings</string>
-
-
-    <string name="about">About</string>
-    <string name="about_s">About %1$s</string>
-    <string name="help">Help</string>
-    <string name="help_s">%1$s Help</string>
-    <string name="more_at_url_s">More at: %1$s</string>
-
-    <string name="settings">Settings</string>
     <string name="users">Users</string>
     <string name="user_edition">User Edition</string>
-    <string name="list">List</string>
-    <string name="edit">Edit</string>
-    <string name="delete">Delete</string>
-
-
-    <string name="open_menu">Open Menu</string>
-    <string name="close_menu">Close Menu</string>
-    <string name="contact_info">Contact Info</string>
-    <string name="color_scheme">Color scheme: %1$s</string>
-    <string name="color_scheme_dark">Color scheme: DARK</string>
-    <string name="color_scheme_light">Color scheme: LIGHT</string>
-    <string name="dark">DARK</string>
-    <string name="light">LIGHT</string>
-    <string name="total_items_n">Total items: %1$d</string>
-    <string name="page_size">Page size: </string>
-    <string name="back">BACK</string>
-    <string name="forward">FORWARD</string>
-    <string name="yes">YES</string>
-    <string name="no">NO</string>
-    <string name="ok">OK</string>
-    <string name="cancel">CANCEL</string>
-
-
-
-
 
     <!-- errors -->
     <string name="error_occurred">Error has occurred!</string>
@@ -214,119 +160,8 @@
     <string name="error_unknown_error">An unknown API error occurred, please contact your site administrator.</string>
     <string name="error_profile_updating_error">PROFILE UPDATING ERROR</string>
 
-
-
-    <!-- secure notes  -->
-
-    <!-- crypto center -->
-    <string name="encrypt">Encrypt</string>
-
-    <string name="decrypt">Decrypt</string>
-
-
-    <!-- proper names - DO NOT TRANSLATE -->
-    <string name="essbase">Essbase</string>
-    <string name="pyrite">Pyrite</string>
-    <string name="aws_s3">AWS S3</string>
-
-
     <string name="desc_sobosite_dashboard">
         This is just a Sobosite application template. Feel free to modify and adjust this Dashboard for your needs.
         Remember, that the basic goal of a dashboard is to provide users with 'their own homepage'.
     </string>
-
-    <string name="language">
-        Language
-    </string>
-
-    <string name="use_device_language">
-        Use system (device) language?
-    </string>
-
-    <string name="plaintext">
-        Plaintext
-    </string>
-
-    <string name="plaintext_required">
-        Plaintext is required
-    </string>
-
-    <string name="secret_key_hex">
-        Secret key
-    </string>
-
-    <string name="secret_key_hex_required">
-        Secret key is required: either pasted (hex), generated or password-derived
-    </string>
-
-    <string name="cipher_text_hex">
-        Ciphertext (hex)
-    </string>
-
-    <string name="encryption_error_header">
-        ENCRYPTION ERROR
-    </string>
-
-    <string name="decryption_error_header">
-        DECRYPTION ERROR
-    </string>
-
-    <string name="copy_result_ciphertext">
-        Copy resulting ciphertext
-    </string>
-
-    <string name="copy_result_plaintext">
-        Copy resulting plaintext
-    </string>
-
-
-    <string name="get_secret_key">
-        GET SECRET KEY:
-    </string>
-
-    <string name="generate_random">
-        Generate random
-    </string>
-
-    <string name="from_password">
-        From Password
-    </string>
-
-    <string name="paste">
-        Paste
-    </string>
-
-    <string name="paste_plaintext">
-        Paste plaintext from clipboard
-    </string>
-
-    <string name="paste_ciphertext">
-        Paste ciphertext hex from clipboard
-    </string>
-
-    <string name="copy">
-        Copy
-    </string>
-
-    <string name="clear_all">
-        Clear all
-    </string>
-
-    <string name="copy_hex_key">
-        Copy hex key
-    </string>
-
-    <string name="paste_hex_key">
-        Paste hex key from clipboard
-    </string>
-
-    <string name="cryptocenter_decryption">
-        Sobo Crypto Center - Decryption
-    </string>
-
-    <string name="cryptocenter_encryption">
-        Sobo Crypto Center - Encryption
-    </string>
-
-
 </resources>

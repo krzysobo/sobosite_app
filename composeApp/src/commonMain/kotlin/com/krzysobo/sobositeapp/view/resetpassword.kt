@@ -16,11 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.error_network_error
-import apptpl.composeapp.generated.resources.error_network_error_desc
-import apptpl.composeapp.generated.resources.password_reset
-import apptpl.composeapp.generated.resources.reset_your_password
+import sobositeapp.composeapp.generated.resources.Res
+import sobositeapp.composeapp.generated.resources.error_network_error
+import sobositeapp.composeapp.generated.resources.error_network_error_desc
+import sobositeapp.composeapp.generated.resources.password_reset
+import sobositeapp.composeapp.generated.resources.reset_your_password
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.LoginWidget

@@ -19,17 +19,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.close_password_edition
-import apptpl.composeapp.generated.resources.no
-import apptpl.composeapp.generated.resources.open_password_edition
-import apptpl.composeapp.generated.resources.save_user_data
-import apptpl.composeapp.generated.resources.user_is_active_desc
-import apptpl.composeapp.generated.resources.user_is_staff_desc
-import apptpl.composeapp.generated.resources.user_saved_ok
-import apptpl.composeapp.generated.resources.user_saved_ok_desc
-import apptpl.composeapp.generated.resources.user_saving_error
-import apptpl.composeapp.generated.resources.yes
+import sobositeapp.composeapp.generated.resources.Res
+import sobositeapp.composeapp.generated.resources.close_password_edition
+import sobositeapp.composeapp.generated.resources.open_password_edition
+import sobositeapp.composeapp.generated.resources.save_user_data
+import sobositeapp.composeapp.generated.resources.user_is_active_desc
+import sobositeapp.composeapp.generated.resources.user_is_staff_desc
+import sobositeapp.composeapp.generated.resources.user_saved_ok
+import sobositeapp.composeapp.generated.resources.user_saved_ok_desc
+import sobositeapp.composeapp.generated.resources.user_saving_error
 import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
@@ -167,9 +165,9 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                 )
 
                 val isActiveStr = if (vm.isActive.value) {
-                    anyResText(AnyRes(Res.string.yes))
+                    anyResText(AnyRes(PubRes.string.yes))
                 } else {
-                    anyResText(AnyRes(Res.string.no))
+                    anyResText(AnyRes(PubRes.string.no))
                 }
                 Text("${anyResText(AnyRes(Res.string.user_is_active_desc))} $isActiveStr")
             }
@@ -184,9 +182,9 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                     }
                 )
                 val isStaffStr = if (vm.isStaff.value) {
-                    anyResText(AnyRes(Res.string.yes))
+                    anyResText(AnyRes(PubRes.string.yes))
                 } else {
-                    anyResText(AnyRes(Res.string.no))
+                    anyResText(AnyRes(PubRes.string.no))
                 }
                 Text("${anyResText(AnyRes(Res.string.user_is_staff_desc))} $isStaffStr")
             }

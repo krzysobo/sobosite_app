@@ -3,9 +3,9 @@ package com.krzysobo.sobositeapp.view
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.dashboard_long_s
-import apptpl.composeapp.generated.resources.desc_sobosite_dashboard
+import sobositeapp.composeapp.generated.resources.Res
+import sobositeapp.composeapp.generated.resources.dashboard_long_s
+import sobositeapp.composeapp.generated.resources.desc_sobosite_dashboard
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PageHeader

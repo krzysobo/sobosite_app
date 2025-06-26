@@ -31,29 +31,18 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.actions
-import apptpl.composeapp.generated.resources.back
-import apptpl.composeapp.generated.resources.create_user
-import apptpl.composeapp.generated.resources.delete
-import apptpl.composeapp.generated.resources.edit
-
-
-
-import com.krzysobo.soboapptpl.service.anyResText
-
 import com.krzysobo.soboapptpl.pubres.PubRes
-import apptpl.composeapp.generated.resources.forward
-import apptpl.composeapp.generated.resources.no
-import apptpl.composeapp.generated.resources.user_is_active
-import apptpl.composeapp.generated.resources.user_is_staff
-import apptpl.composeapp.generated.resources.user_is_staff_desc
-import apptpl.composeapp.generated.resources.yes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.SoboRouter
+import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.sobositeapp.settings.AppRequestEditUser
 import com.krzysobo.sobositeapp.settings.SOBOSITE_ROUTE_HANDLE
 import com.krzysobo.sobositeapp.viewmodel.admin.AdminListUsersPageVM
+import sobositeapp.composeapp.generated.resources.Res
+import sobositeapp.composeapp.generated.resources.create_user
+import sobositeapp.composeapp.generated.resources.user_is_active
+import sobositeapp.composeapp.generated.resources.user_is_staff
+import sobositeapp.composeapp.generated.resources.user_is_staff_desc
 
 
 @Composable
@@ -99,7 +88,7 @@ fun soboTableFooterAndroid(
         )
         Text(
             modifier = footerTextModifier
-                .padding(end = 10.dp, top=0.dp),
+                .padding(end = 10.dp, top = 0.dp),
             text = "$itemsNo",
             style = footerTextStyle.copy(fontSize = 14.sp)
         )
@@ -120,7 +109,7 @@ fun soboTableFooterAndroid(
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
-                anyResText(AnyRes(Res.string.back))
+                anyResText(AnyRes(PubRes.string.back))
             )
         }
 
@@ -148,7 +137,7 @@ fun soboTableFooterAndroid(
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Outlined.ArrowForward,
-                anyResText(AnyRes(Res.string.forward))
+                anyResText(AnyRes(PubRes.string.forward))
             )
         }
     }
@@ -239,12 +228,12 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
 
                 item {
                     val isActiveStr =
-                        if (user.is_active) anyResText(AnyRes(Res.string.yes)) else anyResText(
-                            AnyRes(Res.string.no)
+                        if (user.is_active) anyResText(AnyRes(PubRes.string.yes)) else anyResText(
+                            AnyRes(PubRes.string.no)
                         )
                     val isStaffStr =
-                        if (user.is_staff) anyResText(AnyRes(Res.string.yes)) else anyResText(
-                            AnyRes(Res.string.no)
+                        if (user.is_staff) anyResText(AnyRes(PubRes.string.yes)) else anyResText(
+                            AnyRes(PubRes.string.no)
                         )
 
                     Card(
@@ -296,7 +285,7 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
                                 ) {
                                     Icon(
                                         imageVector = Icons.Default.Edit,
-                                        anyResText(AnyRes(Res.string.edit))
+                                        anyResText(AnyRes(PubRes.string.edit))
                                     )
                                 }
                                 IconButton(
@@ -304,7 +293,7 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
                                     onClick = { vm.openDeletionForUser(user) }) {
                                     Icon(
                                         imageVector = Icons.Default.Delete,
-                                        contentDescription = anyResText(AnyRes(Res.string.delete))
+                                        contentDescription = anyResText(AnyRes(PubRes.string.delete))
                                     )
                                 }
                             }
