@@ -64,6 +64,10 @@ class ResetPasswordConfirmPageVM : SoboViewModel(
             isFormSent.value = false
             isApiError.value = true
             apiErrorDetails.value = "${e.message}"
+        } catch (e: Exception) {
+            isFormSent.value = false
+            isApiError.value = true
+            apiErrorDetails.value = "${e.message}"
         }
 
         return false

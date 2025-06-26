@@ -77,7 +77,7 @@ class RegisterPageVM : SoboViewModel(
             apiErrorDetails.value = "An error has occurred. " +
                     "Please check your internet connection. Message: ${e.message}"
         }
-        
+
         toggleRefreshCompose()
         return false
     }
