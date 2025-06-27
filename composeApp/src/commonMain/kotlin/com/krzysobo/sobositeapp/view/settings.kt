@@ -26,6 +26,7 @@ import sobositeapp.composeapp.generated.resources.api_prefix
 import sobositeapp.composeapp.generated.resources.api_prefix_desc
 import sobositeapp.composeapp.generated.resources.api_prefix_required
 import com.krzysobo.soboapptpl.service.AnyRes
+import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
 import com.krzysobo.soboapptpl.widgets.MessageBox
@@ -136,6 +137,7 @@ fun PageSobositeSettings() {
                         val res = vm.doUpdateAppSettings()
                         if (res) {
                             vm.doRefreshSettingsFromAppSettings()
+                            SoboRouter.navigateToRouteHandle("about")
                         }
                     }
                 }

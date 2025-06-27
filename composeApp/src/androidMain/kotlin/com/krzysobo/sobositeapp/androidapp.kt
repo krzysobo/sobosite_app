@@ -8,12 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
-import com.krzysobo.sobositeapp.viewmodel.getUserStateVM
+import com.krzysobo.soboapptpl.service.LocaleManager
 import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.sobositeapp.settings.SOBOSITE_ROUTE_HANDLE
 import com.krzysobo.sobositeapp.settings.sobositeRoutes
-
-
+import com.krzysobo.sobositeapp.viewmodel.getUserStateVM
 import com.krzysobo.sobositeapp.viewmodel.isLoggedIn
 import com.krzysobo.sobositeapp.viewmodel.isLoggedInAdmin
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -45,6 +44,8 @@ fun getMenuItemsByUserStatus(
 @Composable
 @Preview
 fun SobositeAndroidApp() {
+    LocaleManager.useLocaleFromAppSettings()
+
     SoboRouter.initRouter(
         routes = sobositeRoutes,
         routeHandleLoggedInUserHome = SOBOSITE_ROUTE_HANDLE.DASHBOARD.value,

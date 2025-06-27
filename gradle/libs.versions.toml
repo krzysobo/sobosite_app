@@ -44,6 +44,8 @@ runtimeDesktop = "1.7.0"
 runtimeJvmstubs = "1.8.2"
 supportAnnotations = "28.0.0"
 runtime = "1.8.2"
+uiTextAndroidVersion = "1.8.3"
+uiTextDesktop = "1.7.0"
 
 [libraries]
 
@@ -95,6 +97,8 @@ support-annotations = { group = "com.android.support", name = "support-annotatio
 androidx-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 
 bouncyCastle = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bouncyCastle" }
+ui-text-android = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "uiTextAndroidVersion" }
+androidx-ui-text-desktop = { group = "androidx.compose.ui", name = "ui-text-desktop", version.ref = "uiTextDesktop" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -2,11 +2,14 @@ package com.krzysobo.sobositeapp.viewmodel
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.text.intl.Locale
 import com.krzysobo.soboapptpl.viewmodel.LangSettingsVM
 import com.krzysobo.soboapptpl.viewmodel.SoboViewModel
 import com.krzysobo.soboapptpl.widgets.strNotEmpty
 import com.krzysobo.soboapptpl.widgets.validateWithLambda
 import com.krzysobo.sobositeapp.settings.AppSettings
+import java.lang.module.Configuration
+import javax.naming.Context
 
 
 class SettingsPageVM : SoboViewModel(
@@ -28,6 +31,7 @@ class SettingsPageVM : SoboViewModel(
         apiHostUrl.value = AppSettings.apiHostUrl
         apiPrefix.value = AppSettings.apiPrefix
     }
+
 
     fun doUpdateAppSettings(): Boolean {
 //        println("\n\n======================= UPDATE SETTINGS ===============\n\n")

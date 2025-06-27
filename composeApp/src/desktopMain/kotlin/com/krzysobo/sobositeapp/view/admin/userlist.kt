@@ -19,16 +19,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.actions
-import apptpl.composeapp.generated.resources.create_user
-import apptpl.composeapp.generated.resources.delete
-import apptpl.composeapp.generated.resources.edit
-import apptpl.composeapp.generated.resources.email
-import apptpl.composeapp.generated.resources.first_name
-import apptpl.composeapp.generated.resources.last_name
-import apptpl.composeapp.generated.resources.user_is_active
-import apptpl.composeapp.generated.resources.user_is_staff
+import sobositeapp.composeapp.generated.resources.Res
+import sobositeapp.composeapp.generated.resources.create_user
+import sobositeapp.composeapp.generated.resources.user_is_active
+import sobositeapp.composeapp.generated.resources.user_is_staff
+import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.soboapptpl.service.anyResText
@@ -42,13 +37,14 @@ import com.krzysobo.sobositeapp.viewmodel.admin.AdminListUsersPageVM
 
 @Composable
 actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
+//    PubRes.
     val columns = listOf(
-        anyResText(AnyRes(Res.string.email)),
-        anyResText(AnyRes(Res.string.first_name)),
-        anyResText(AnyRes(Res.string.last_name)),
+        anyResText(AnyRes(PubRes.string.email)),
+        anyResText(AnyRes(PubRes.string.first_name)),
+        anyResText(AnyRes(PubRes.string.last_name)),
         anyResText(AnyRes(Res.string.user_is_active)),
         anyResText(AnyRes(Res.string.user_is_staff)),
-        anyResText(AnyRes(Res.string.actions)),
+        anyResText(AnyRes(PubRes.string.actions)),
     )
 
     LazyVerticalGrid(
@@ -100,7 +96,7 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
                             ) {
                                 Icon(
                                     imageVector = Icons.Default.Edit,
-                                    contentDescription = anyResText(AnyRes(Res.string.edit))
+                                    contentDescription = anyResText(AnyRes(PubRes.string.edit))
                                 )
                             }
 
@@ -109,7 +105,7 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
                                 onClick = { vm.openDeletionForUser(user) }) {
                                 Icon(
                                     imageVector = Icons.Default.Delete,
-                                    contentDescription = anyResText(AnyRes(Res.string.delete))
+                                    contentDescription = anyResText(AnyRes(PubRes.string.delete))
                                 )
                             }
                         }

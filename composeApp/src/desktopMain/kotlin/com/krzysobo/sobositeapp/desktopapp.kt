@@ -6,8 +6,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.window.FrameWindowScope
-import apptpl.composeapp.generated.resources.Res
-import apptpl.composeapp.generated.resources.app_name_sobosite_desktop
+import com.krzysobo.soboapptpl.service.LocaleManager
+import sobositeapp.composeapp.generated.resources.Res
+import sobositeapp.composeapp.generated.resources.app_name_sobosite_desktop
 //import com.krzysobo.sobositeapp.SoboTheme
 import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.soboapptpl.widgets.menus.PageTabsWithOutletAndLogin
@@ -25,6 +26,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 @Preview
 fun SobositeDesktopApp() {
+    LocaleManager.useLocaleFromAppSettings()
+
     SoboRouter.initRouter(
         routes = sobositeRoutes,
         routeHandleLoggedInUserHome = SOBOSITE_ROUTE_HANDLE.DASHBOARD.value,
