@@ -1,5 +1,6 @@
 package com.krzysobo.sobositeapp.view
 
+import WaitingSpinner
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -61,105 +62,111 @@ fun PageSobositeLogin() {
     vm.isAuthError = remember { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
 
-    LazyColumn(
-        modifier = Modifier.padding(all = 10.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        item {
-            PageHeader(anyResText(AnyRes(Res.string.login_page)))
-            Text(anyResText(AnyRes(Res.string.api_prefix_s, HttpService().retApiPrefix())))
-        }
 
-        item {
-            if (vm.isFormSent.value) {
-                SoboRouter.navigateToLoggedInUserHome()
-            } else {
-                val resLoginError = anyResText(AnyRes(Res.string.error_login_error))
-                if (vm.isAuthError.value) {
-                    val errorText = buildAnnotatedString {
-                        append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p1)))
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                            append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p2)))
-                        }
-                        append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p3)))
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                            append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p4)))
-                        }
-                        append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p5)))
-                    }
-                    ErrorMessageBox("* $resLoginError *", errorText)
-                } else if (vm.isApiError.value) {
-                    val errorText =
-                        if (vm.apiErrorDetails.value != "") vm.apiErrorDetails.value else
-                            anyResText(AnyRes(Res.string.error_unknown_error))
-                    ErrorMessageBox("* $resLoginError *", errorText)
-                }
+    var showColumn = remember { mutableStateOf(true) }
+    if (showColumn.value) {
+        LazyColumn(
+            modifier = Modifier.padding(all = 10.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            item {
+                PageHeader(anyResText(AnyRes(Res.string.login_page)))
+                Text(anyResText(AnyRes(Res.string.api_prefix_s, HttpService().retApiPrefix())))
+            }
 
-
-                /**
-                 * username  https://developer.android.com/develop/ui/compose/text/user-input
-                 */
-                LoginWidget(
-                    value = vm.login.value,
-                    onValueChanges = { data: String ->
-//                    println("login value change $data")
-                        vm.login.value = data
-                        vm.clearLoginError()
-                    },
-                    isError = vm.isErrorLogin.value,
-                )
-
-                /**
-                 * Password
-                 */
-                PasswordWidget(
-                    value = vm.pass.value,
-                    onValueChanges = { data: String ->
-//                    println("password value change $data")
-                        vm.pass.value = data
-                        vm.clearPassError()
-                    },
-                    isError = vm.isErrorPass.value,
-                    trailingIconPassOnClick = { vm.togglePassVisible() },
-                    isPassVisible = vm.isPassVisible,
-                )
-
-
-                Row {
-                    Button(
-                        onClick = {
-                            vm.clearErrors()
-                            val res: Boolean = vm.validate()
-                            if (res) {
-//                            println("FORM IS CORRECT, trying to log in...")
-                                coroutineScope.launch {
-                                    vm.doLogIn()
-                                }
+            item {
+                if (vm.isFormSent.value) {
+                    SoboRouter.navigateToLoggedInUserHome()
+                } else {
+                    val resLoginError = anyResText(AnyRes(Res.string.error_login_error))
+                    if (vm.isAuthError.value) {
+                        val errorText = buildAnnotatedString {
+                            append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p1)))
+                            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                                append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p2)))
                             }
-                        },
-                        modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(PubRes.string.log_in))) }
+                            append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p3)))
+                            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                                append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p4)))
+                            }
+                            append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p5)))
+                        }
+                        ErrorMessageBox("* $resLoginError *", errorText)
+                    } else if (vm.isApiError.value) {
+                        val errorText =
+                            if (vm.apiErrorDetails.value != "") vm.apiErrorDetails.value else
+                                anyResText(AnyRes(Res.string.error_unknown_error))
+                        ErrorMessageBox("* $resLoginError *", errorText)
+                    }
 
-                    Button(
-                        onClick = {
-//                        println("Register clicked!");
-                            SoboRouter.navigateToRouteHandle(SOBOSITE_ROUTE_HANDLE.REGISTER.value)
-                        },
-                        modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.register))) }
 
-                    Button(
-                        onClick = {
-//                        println("Reset password clicked!");
-                            SoboRouter.navigateToRouteHandle(SOBOSITE_ROUTE_HANDLE.RESET_PASS.value)
+                    /**
+                     * username  https://developer.android.com/develop/ui/compose/text/user-input
+                     */
+                    LoginWidget(
+                        value = vm.login.value,
+                        onValueChanges = { data: String ->
+                            //                    println("login value change $data")
+                            vm.login.value = data
+                            vm.clearLoginError()
                         },
-                        modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.reset_pass))) }
+                        isError = vm.isErrorLogin.value,
+                    )
+
+                    /**
+                     * Password
+                     */
+                    PasswordWidget(
+                        value = vm.pass.value,
+                        onValueChanges = { data: String ->
+                            //                    println("password value change $data")
+                            vm.pass.value = data
+                            vm.clearPassError()
+                        },
+                        isError = vm.isErrorPass.value,
+                        trailingIconPassOnClick = { vm.togglePassVisible() },
+                        isPassVisible = vm.isPassVisible,
+                    )
+
+                    Row {
+                        Button(
+                            onClick = {
+                                vm.clearErrors()
+                                val res: Boolean = vm.validate()
+                                if (res) {
+                                    coroutineScope.launch {
+                                        showColumn.value = false
+                                        vm.doLogIn()
+                                        showColumn.value = true
+                                    }
+                                }
+                            },
+                            modifier = Modifier.padding(all = 10.dp)
+                        ) { Text(anyResText(AnyRes(PubRes.string.log_in))) }
+
+                        Button(
+                            onClick = {
+                                SoboRouter.navigateToRouteHandle(SOBOSITE_ROUTE_HANDLE.REGISTER.value)
+                            },
+                            modifier = Modifier.padding(all = 10.dp)
+                        ) { Text(anyResText(AnyRes(Res.string.register))) }
+                    }
+
+                    Row {
+                        Button(
+                            onClick = {
+                                SoboRouter.navigateToRouteHandle(SOBOSITE_ROUTE_HANDLE.RESET_PASS.value)
+                            },
+                            modifier = Modifier.padding(all = 10.dp)
+                        ) { Text(anyResText(AnyRes(Res.string.reset_pass))) }
+                    }
 
                 }
             }
-        }
 
+        }
+    } else {
+        WaitingSpinner()
     }
 }

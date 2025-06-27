@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import com.krzysobo.soboapptpl.service.LocaleManager
 import com.krzysobo.soboapptpl.service.SoboRouter
+import com.krzysobo.soboapptpl.viewmodel.AppViewModelVM
 import com.krzysobo.sobositeapp.settings.SOBOSITE_ROUTE_HANDLE
 import com.krzysobo.sobositeapp.settings.sobositeRoutes
 import com.krzysobo.sobositeapp.viewmodel.getUserStateVM
@@ -43,7 +44,8 @@ fun getMenuItemsByUserStatus(
 
 @Composable
 @Preview
-fun SobositeAndroidApp() {
+fun SobositeAndroidApp(cntx: Int =0) {
+    println("--- STARTING SobositeAndroidApp --- ")
     LocaleManager.useLocaleFromAppSettings()
 
     SoboRouter.initRouter(
@@ -57,39 +59,43 @@ fun SobositeAndroidApp() {
     )
     SoboRouter.navigateToWelcomeIfBackStackEmpty()
 
-    SoboTheme(useDarkTheme = com.krzysobo.soboapptpl.viewmodel.isDarkMode()) {
-        val routesDebug = false
-        Column {
-            // ---- routes debug ----
-            if (routesDebug) {
-                Text("BS SIZE: ${SoboRouter.backStack.size}")
-                Text("Current route: ${SoboRouter.getCurrentRoute().handle}")
-                Text("Previous Route: ${SoboRouter.getPreviousBackStackItemIfAvailable()?.route?.handle ?: "-nope-"}")
+    AppViewModelVM.isLayoutShown = remember { mutableStateOf(true) }
+
+    if (AppViewModelVM.isLayoutShown.value) {
+        SoboTheme(useDarkTheme = com.krzysobo.soboapptpl.viewmodel.isDarkMode()) {
+            val routesDebug = false
+            Column {
+                // ---- routes debug ----
+                if (routesDebug) {
+                    Text("BS SIZE: ${SoboRouter.backStack.size}")
+                    Text("Current route: ${SoboRouter.getCurrentRoute().handle}")
+                    Text("Previous Route: ${SoboRouter.getPreviousBackStackItemIfAvailable()?.route?.handle ?: "-nope-"}")
+                }
+                // ---- /routes debug ----
+
+
+                val activity = (LocalContext.current as? Activity)
+                BackHandler(enabled = true) {  // handling the Smartphone's "BACK" button
+                    com.krzysobo.soboapptpl.service.handleAndroidBackButton(activity)
+                }
+
+                val menuItems = getMenuItemsByUserStatus(
+                    menuItemsForLoggedInAdmin = sobositeMenuItemsForLoggedInAdmin,
+                    menuItemsForLoggedIn = sobositeMenuItemsForLoggedIn,
+                    menuItemsForLoggedOut = sobositeMenuItemsForLoggedOut,
+                )
+
+                com.krzysobo.soboapptpl.widgets.menus.AppLayoutWithDrawerMenu(
+                    menuItems,
+                    {
+                        if (it.routeHandle != "") {
+                            SoboRouter.navigateToRouteHandle(it.routeHandle)
+                        }
+                    },
+                    topAppBarTitle = "Sobosite App v. $appVersion",
+                    drawerAppTitle = "Sobosite App",
+                )
             }
-            // ---- /routes debug ----
-
-
-            val activity = (LocalContext.current as? Activity)
-            BackHandler(enabled = true) {  // handling the Smartphone's "BACK" button
-                com.krzysobo.soboapptpl.service.handleAndroidBackButton(activity)
-            }
-
-            val menuItems = getMenuItemsByUserStatus(
-                menuItemsForLoggedInAdmin = sobositeMenuItemsForLoggedInAdmin,
-                menuItemsForLoggedIn = sobositeMenuItemsForLoggedIn,
-                menuItemsForLoggedOut = sobositeMenuItemsForLoggedOut,
-            )
-
-            com.krzysobo.soboapptpl.widgets.menus.AppLayoutWithDrawerMenu(
-                menuItems,
-                {
-                    if (it.routeHandle != "") {
-                        SoboRouter.navigateToRouteHandle(it.routeHandle)
-                    }
-                },
-                topAppBarTitle = "Sobosite App v. $appVersion",
-                drawerAppTitle = "Sobosite App",
-            )
         }
     }
 }

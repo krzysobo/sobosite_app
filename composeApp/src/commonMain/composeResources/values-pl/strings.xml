@@ -71,8 +71,9 @@
     <string name="confirm_password_reset">Potwierdź swój reset hasła</string>
     <string name="confirm_password_reset_long">Potwierdź swój reset hasła - ustaw nowe hasło</string>
     <string name="password_reset_desc_s">
-        If your mail %1$s exists in our database, the password reset message will be sent.
-        Check your mailbox, including 'SPAM' folders!
+        Jeśli Twój mail '%1$s' istnieje w naszej bazie danych, zostanie na niego wysłana
+        wiadomość umożliwiająca reset hasła.
+        Sprawdź swoją skrzynkę, w tym folder 'SPAM'!
     </string>
     <string name="dashboard">Strona domowa</string>
     <string name="dashboard_long_s">%1$s Strona domowa użytkownika</string>

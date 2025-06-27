@@ -1,5 +1,6 @@
 package com.krzysobo.sobositeapp.view
 
+import WaitingSpinner
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -54,80 +55,88 @@ fun PageSobositeRegisterConfirm() {
 
     val focusManager = LocalFocusManager.current
 
-    LazyColumn(
-        modifier = Modifier.padding(all = 10.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        item {
-            PageHeader(anyResText(AnyRes(Res.string.registration_confirmation)))
-        }
+    var showColumn = remember { mutableStateOf(true) }
+    if (showColumn.value) {
 
-        item {
+        LazyColumn(
+            modifier = Modifier.padding(all = 10.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            item {
+                PageHeader(anyResText(AnyRes(Res.string.registration_confirmation)))
+            }
 
-            if (vm.isFormSent.value) {
-                MessageBox(
-                    "* ${anyResText(AnyRes(Res.string.registration_confirmed_ok))} *",
-                    anyResText(AnyRes(Res.string.registration_confirmed_ok_desc))
-                )
-            } else {
-                if (vm.isApiError.value) {
-                    ErrorMessageBox(
-                        "* ${anyResText(AnyRes(Res.string.registration_confirmation_failure))} *",
-                        anyResText(AnyRes(Res.string.registration_confirmation_failure_desc))
+            item {
+
+                if (vm.isFormSent.value) {
+                    MessageBox(
+                        "* ${anyResText(AnyRes(Res.string.registration_confirmed_ok))} *",
+                        anyResText(AnyRes(Res.string.registration_confirmed_ok_desc))
                     )
-                }
+                } else {
+                    if (vm.isApiError.value) {
+                        ErrorMessageBox(
+                            "* ${anyResText(AnyRes(Res.string.registration_confirmation_failure))} *",
+                            anyResText(AnyRes(Res.string.registration_confirmation_failure_desc))
+                        )
+                    }
 
-                val leadingIcon = @Composable {
-                    Icon(
-                        Icons.Default.Person,
-                        contentDescription = "",
+                    val leadingIcon = @Composable {
+                        Icon(
+                            Icons.Default.Person,
+                            contentDescription = "",
+                        )
+                    }
+
+                    /**
+                     * username  https://developer.android.com/develop/ui/compose/text/user-input
+                     */
+                    LoginWidget(
+                        value = vm.login.value,
+                        onValueChanges = { data: String ->
+                            vm.login.value = data
+                            vm.clearLoginError()
+                        },
+                        isError = vm.isErrorLogin.value,
                     )
-                }
 
-                /**
-                 * username  https://developer.android.com/develop/ui/compose/text/user-input
-                 */
-                LoginWidget(
-                    value = vm.login.value,
-                    onValueChanges = { data: String ->
-                        vm.login.value = data
-                        vm.clearLoginError()
-                    },
-                    isError = vm.isErrorLogin.value,
-                )
+                    /**
+                     * token
+                     */
+                    TextFieldWithErrorsKeyboardSettings(
+                        value = vm.token.value,
+                        onValueChanges = { data: String ->
+                            vm.token.value = data
+                            vm.clearTokenError()
+                        },
+                        modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
+                        labelText = anyResText(AnyRes(Res.string.token)),
+                        placeHolderText = anyResText(AnyRes(Res.string.your_token)),
+                        leadingIcon = leadingIcon,
+                        isError = vm.isErrorToken.value,
+                        errorText = anyResText(AnyRes(Res.string.token_required)),
+                        focusManager = focusManager
+                    )
 
-                /**
-                 * token
-                 */
-                TextFieldWithErrorsKeyboardSettings(
-                    value = vm.token.value,
-                    onValueChanges = { data: String ->
-                        vm.token.value = data
-                        vm.clearTokenError()
-                    },
-                    modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                    labelText = anyResText(AnyRes(Res.string.token)),
-                    placeHolderText = anyResText(AnyRes(Res.string.your_token)),
-                    leadingIcon = leadingIcon,
-                    isError = vm.isErrorToken.value,
-                    errorText = anyResText(AnyRes(Res.string.token_required)),
-                    focusManager = focusManager
-                )
-
-                Button(
-                    onClick = {
-                        vm.clearErrors()
-                        val res: Boolean = vm.validate()
-                        if (res) {
-                            coroutineScope.launch {
-                                vm.doRegisterConfirm()
+                    Button(
+                        onClick = {
+                            vm.clearErrors()
+                            val res: Boolean = vm.validate()
+                            if (res) {
+                                coroutineScope.launch {
+                                    showColumn.value = false
+                                    vm.doRegisterConfirm()
+                                    showColumn.value = true
+                                }
                             }
-                        }
-                    },
-                    modifier = Modifier.padding(all = 10.dp)
-                ) { Text(anyResText(AnyRes(Res.string.confirm_your_registration))) }
+                        },
+                        modifier = Modifier.padding(all = 10.dp)
+                    ) { Text(anyResText(AnyRes(Res.string.confirm_your_registration))) }
+                }
             }
         }
+    } else {
+        WaitingSpinner()
     }
 }

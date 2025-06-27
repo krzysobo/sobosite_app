@@ -1,5 +1,6 @@
 package com.krzysobo.sobositeapp.view
 
+import WaitingSpinner
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -29,6 +30,7 @@ import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.sobositeapp.viewmodel.ResetPasswordPageVM
 import com.krzysobo.sobositeapp.viewmodel.getResetPasswordPageVM
 import kotlinx.coroutines.launch
+import sobositeapp.composeapp.generated.resources.password_reset_desc_s
 
 @Composable
 fun PageSobositeResetPassword() {
@@ -41,62 +43,70 @@ fun PageSobositeResetPassword() {
     vm.isApiError = remember { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
 
-    LazyColumn(
-        modifier = Modifier.padding(all = 10.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        item {
-            PageHeader(anyResText(AnyRes(Res.string.reset_your_password)))
-        }
+    var showColumn = remember { mutableStateOf(true) }
+    if (showColumn.value) {
 
-        val leadingIcon = @Composable {
-            Icon(
-                Icons.Default.Person,
-                contentDescription = "",
-            )
-        }
+        LazyColumn(
+            modifier = Modifier.padding(all = 10.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            item {
+                PageHeader(anyResText(AnyRes(Res.string.reset_your_password)))
+            }
 
-        item {
-
-            if (vm.isFormSent.value) {
-                MessageBox(
-                    "* ${anyResText(AnyRes(Res.string.password_reset))} *",
-                    anyResText(AnyRes(Res.string.password_reset, vm.login.value))
+            val leadingIcon = @Composable {
+                Icon(
+                    Icons.Default.Person,
+                    contentDescription = "",
                 )
-            } else {
-                if (vm.isApiError.value) {
+            }
+
+            item {
+
+                if (vm.isFormSent.value) {
                     MessageBox(
-                        "* ${anyResText(AnyRes(Res.string.error_network_error))} *",
-                        anyResText(AnyRes(Res.string.error_network_error_desc))
+                        "* ${anyResText(AnyRes(Res.string.password_reset))} *",
+                        anyResText(AnyRes(Res.string.password_reset_desc_s, vm.login.value))
                     )
-                }
-                /**
-                 * username  https://developer.android.com/develop/ui/compose/text/user-input
-                 */
+                } else {
+                    if (vm.isApiError.value) {
+                        MessageBox(
+                            "* ${anyResText(AnyRes(Res.string.error_network_error))} *",
+                            anyResText(AnyRes(Res.string.error_network_error_desc))
+                        )
+                    }
+                    /**
+                     * username  https://developer.android.com/develop/ui/compose/text/user-input
+                     */
 
-                LoginWidget(
-                    value = vm.login.value,
-                    onValueChanges = { data: String ->
-                        vm.login.value = data
-                        vm.clearLoginError()
-                    },
-                    isError = vm.isErrorLogin.value,
-                )
+                    LoginWidget(
+                        value = vm.login.value,
+                        onValueChanges = { data: String ->
+                            vm.login.value = data
+                            vm.clearLoginError()
+                        },
+                        isError = vm.isErrorLogin.value,
+                    )
 
-                Button(
-                    onClick = {
-                        vm.clearErrors()
-                        val res: Boolean = vm.validate()
-                        if (res) {
-                            coroutineScope.launch {
-                                vm.doResetPassword()
+                    Button(
+                        onClick = {
+                            vm.clearErrors()
+                            val res: Boolean = vm.validate()
+                            if (res) {
+                                coroutineScope.launch {
+                                    showColumn.value = false
+                                    vm.doResetPassword()
+                                    showColumn.value = true
+                                }
                             }
-                        }
-                    },
-                    modifier = Modifier.padding(all = 10.dp)
-                ) { Text(anyResText(AnyRes(Res.string.reset_your_password))) }
+                        },
+                        modifier = Modifier.padding(all = 10.dp)
+                    ) { Text(anyResText(AnyRes(Res.string.reset_your_password))) }
+                }
             }
         }
+    } else {
+        WaitingSpinner()
     }
 }

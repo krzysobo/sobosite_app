@@ -1,9 +1,12 @@
 package com.krzysobo.sobositeapp.view
 
+import WaitingSpinner
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import com.krzysobo.soboapptpl.pubres.PubRes
@@ -36,9 +39,11 @@ fun deletionDialog(vm: AdminListUsersPageVM, coroutineScope: CoroutineScope) {
             onDismissRequest = { vm.closeDeletion() },
             onConfirmation = {
                 coroutineScope.launch {
+                    vm.showUserList.value = false
                     vm.doAdminDeleteUser(userToDelete.id)
                     vm.doGetUsers()
                     vm.closeDeletion()
+                    vm.showUserList.value = true
                 }
             },
             dialogTitle = anyResText(AnyRes(Res.string.user_deletion_s, arrayOf(userToDelete.email))),
@@ -61,9 +66,13 @@ fun PageSobositeAdminListUsers() {
     val vm: AdminListUsersPageVM = getAdminListUsersPageVM()
     val coroutineScope = rememberCoroutineScope()
 
+    vm.showUserList = remember {mutableStateOf(true)}
+
     if (!vm.userListUpdated.value) {
         coroutineScope.launch {
+            vm.showUserList.value = false
             vm.doGetUsers()
+            vm.showUserList.value = true
         }
     }
 
@@ -87,5 +96,9 @@ fun PageSobositeAdminListUsers() {
         )
     }
 
-    ShowUsersList(vm, footerTextStyle)
+    if (vm.showUserList.value) {
+        ShowUsersList(vm, footerTextStyle)
+    } else {
+        WaitingSpinner()
+    }
 }

@@ -1,5 +1,6 @@
 package com.krzysobo.sobositeapp.view
 
+import WaitingSpinner
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -63,140 +64,150 @@ fun PageSobositeResetPasswordConfirm() {
     vm.isFormSent = remember { mutableStateOf(false) }
     vm.isApiError = remember { mutableStateOf(false) }
 
-    LazyColumn(
-        modifier = Modifier.padding(all = 10.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        item {
-            PageHeader(anyResText(AnyRes(Res.string.confirm_password_reset)))
-        }
 
-        item {
-            if (vm.isFormSent.value) {
-                MessageBox(
-                    "* ${anyResText(AnyRes(Res.string.password_reset_ok))} *",
-                    anyResText(AnyRes(Res.string.password_reset_ok_desc)),
-                )
-            } else {
-                if (vm.isApiError.value) {
-                    ErrorMessageBox(
-                        "* ${anyResText(AnyRes(Res.string.error_password_reset_confirmation_error))} *",
-                        anyResText(AnyRes(Res.string.error_password_reset_confirmation_error_desc))
+    var showColumn = remember { mutableStateOf(true) }
+    if (showColumn.value) {
+
+        LazyColumn(
+            modifier = Modifier.padding(all = 10.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            item {
+                PageHeader(anyResText(AnyRes(Res.string.confirm_password_reset)))
+            }
+
+            item {
+                if (vm.isFormSent.value) {
+                    MessageBox(
+                        "* ${anyResText(AnyRes(Res.string.password_reset_ok))} *",
+                        anyResText(AnyRes(Res.string.password_reset_ok_desc)),
                     )
-                }
-
-                val leadingIcon = @Composable {
-                    Icon(
-                        Icons.Default.Person,
-                        contentDescription = "",
-                    )
-                }
-
-                val leadingIconPass = @Composable {
-                    Icon(
-                        Icons.Default.Lock,
-                        contentDescription = "",
-                    )
-                }
-
-                val trailingIconPass = @Composable {
-                    IconButton(
-                        onClick = {
-                            vm.togglePassVisible()
-                        }
-                    ) {
-                        Icon(
-                            if (vm.isPassVisible) Icons.Default.KeyboardArrowDown else
-                                Icons.Default.KeyboardArrowUp,
-                            contentDescription = ""
+                } else {
+                    if (vm.isApiError.value) {
+                        ErrorMessageBox(
+                            "* ${anyResText(AnyRes(Res.string.error_password_reset_confirmation_error))} *",
+                            anyResText(AnyRes(Res.string.error_password_reset_confirmation_error_desc))
                         )
                     }
-                }
 
-                /**
-                 * username  https://developer.android.com/develop/ui/compose/text/user-input
-                 */
-                LoginWidget(
-                    value = vm.login.value,
-                    onValueChanges = { data: String ->
-                        vm.login.value = data
-                        vm.clearLoginError()
-                    },
-                    isError = vm.isErrorLogin.value,
-                )
+                    val leadingIcon = @Composable {
+                        Icon(
+                            Icons.Default.Person,
+                            contentDescription = "",
+                        )
+                    }
 
-                val focusManager = LocalFocusManager.current
-                /**
-                 * token
-                 */
-                TextFieldWithErrorsKeyboardSettings(
-                    value = vm.token.value,
-                    onValueChanges = { data: String ->
-                        vm.token.value = data
-                        vm.clearTokenError()
-                    },
-                    modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                    labelText = anyResText(AnyRes(Res.string.token)),
-                    placeHolderText = anyResText(AnyRes(Res.string.your_token)),
-                    leadingIcon = leadingIcon,
-                    isError = vm.isErrorToken.value,
-                    errorText = anyResText(AnyRes(Res.string.token_required)),
-                    focusManager = focusManager
-                )
+                    val leadingIconPass = @Composable {
+                        Icon(
+                            Icons.Default.Lock,
+                            contentDescription = "",
+                        )
+                    }
 
-
-                /**
-                 * Password
-                 */
-                PasswordWidget(
-                    value = vm.pass.value,
-                    onValueChanges = { data: String ->
-                        vm.pass.value = data
-                        vm.clearPassError()
-                        vm.checkPassMatch()
-                    },
-                    isError = vm.isErrorPass.value,
-                    trailingIconPassOnClick = { vm.togglePassVisible() },
-                    isPassVisible = vm.isPassVisible,
-                )
-
-                PasswordWidget(
-                    value = vm.passConfirm.value,
-                    onValueChanges = { data: String ->
-                        vm.passConfirm.value = data
-                        vm.clearPassConfirmError()
-                        vm.checkPassMatch()
-                    },
-                    isError = vm.isErrorPassConfirm.value,
-                    trailingIconPassOnClick = { vm.togglePassVisible() },
-                    isPassVisible = vm.isPassVisible,
-                    labelText = anyResText(AnyRes(PubRes.string.password_confirmation)),
-                    placeHolderText = anyResText(AnyRes(PubRes.string.your_password_confirmation)),
-                    errorText = anyResText(AnyRes(PubRes.string.password_confirmation_required)),
-                )
-
-                if (vm.isErrorPassDontMatch.value) {
-                    ErrorText(anyResText(AnyRes(PubRes.string.error_passwords_dont_match)))
-                }
-
-
-                Button(
-                    onClick = {
-                        vm.clearErrors()
-                        val res: Boolean = vm.validate()
-                        if (res) {
-                            coroutineScope.launch {
-                                vm.doConfirmPasswordReset()
+                    val trailingIconPass = @Composable {
+                        IconButton(
+                            onClick = {
+                                vm.togglePassVisible()
                             }
+                        ) {
+                            Icon(
+                                if (vm.isPassVisible) Icons.Default.KeyboardArrowDown else
+                                    Icons.Default.KeyboardArrowUp,
+                                contentDescription = ""
+                            )
                         }
-                    },
-                    modifier = Modifier.padding(all = 10.dp)
-                ) { Text(anyResText(AnyRes(Res.string.confirm_password_reset_long))) }
+                    }
 
+                    /**
+                     * username  https://developer.android.com/develop/ui/compose/text/user-input
+                     */
+                    LoginWidget(
+                        value = vm.login.value,
+                        onValueChanges = { data: String ->
+                            vm.login.value = data
+                            vm.clearLoginError()
+                        },
+                        isError = vm.isErrorLogin.value,
+                    )
+
+                    val focusManager = LocalFocusManager.current
+                    /**
+                     * token
+                     */
+                    TextFieldWithErrorsKeyboardSettings(
+                        value = vm.token.value,
+                        onValueChanges = { data: String ->
+                            vm.token.value = data
+                            vm.clearTokenError()
+                        },
+                        modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
+                        labelText = anyResText(AnyRes(Res.string.token)),
+                        placeHolderText = anyResText(AnyRes(Res.string.your_token)),
+                        leadingIcon = leadingIcon,
+                        isError = vm.isErrorToken.value,
+                        errorText = anyResText(AnyRes(Res.string.token_required)),
+                        focusManager = focusManager
+                    )
+
+
+                    /**
+                     * Password
+                     */
+                    PasswordWidget(
+                        value = vm.pass.value,
+                        onValueChanges = { data: String ->
+                            vm.pass.value = data
+                            vm.clearPassError()
+                            vm.checkPassMatch()
+                        },
+                        isError = vm.isErrorPass.value,
+                        trailingIconPassOnClick = { vm.togglePassVisible() },
+                        isPassVisible = vm.isPassVisible,
+                    )
+
+                    PasswordWidget(
+                        value = vm.passConfirm.value,
+                        onValueChanges = { data: String ->
+                            vm.passConfirm.value = data
+                            vm.clearPassConfirmError()
+                            vm.checkPassMatch()
+                        },
+                        isError = vm.isErrorPassConfirm.value,
+                        trailingIconPassOnClick = { vm.togglePassVisible() },
+                        isPassVisible = vm.isPassVisible,
+                        labelText = anyResText(AnyRes(PubRes.string.password_confirmation)),
+                        placeHolderText = anyResText(AnyRes(PubRes.string.your_password_confirmation)),
+                        errorText = anyResText(AnyRes(PubRes.string.password_confirmation_required)),
+                    )
+
+                    if (vm.isErrorPassDontMatch.value) {
+                        ErrorText(anyResText(AnyRes(PubRes.string.error_passwords_dont_match)))
+                    }
+
+
+                    Button(
+                        onClick = {
+                            vm.clearErrors()
+                            val res: Boolean = vm.validate()
+                            if (res) {
+                                coroutineScope.launch {
+                                    showColumn.value = false
+                                    vm.doConfirmPasswordReset()
+                                    showColumn.value = true
+                                }
+                            }
+                        },
+                        modifier = Modifier.padding(all = 10.dp)
+                    ) { Text(anyResText(AnyRes(Res.string.confirm_password_reset_long))) }
+
+                }
             }
+
         }
 
+    } else {
+        WaitingSpinner()
     }
 
 

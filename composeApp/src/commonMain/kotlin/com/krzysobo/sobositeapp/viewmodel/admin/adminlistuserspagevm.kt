@@ -28,9 +28,11 @@ class AdminListUsersPageVM : SoboViewModel(
     var pageNo: MutableState<Int> = mutableStateOf(1)
     var pageSize: MutableState<Int> = mutableStateOf(20)
     var userListUpdated: MutableState<Boolean> = mutableStateOf(false)
+    var showUserList: MutableState<Boolean> = mutableStateOf(true)
 
     var isDeletionOpen: MutableState<Boolean> = mutableStateOf(false)
     var isDeletionOk: MutableState<Boolean> = mutableStateOf(false)
+
     var deletionUserModel: MutableState<AdminUserModel> = mutableStateOf(AdminUserModel())
 
     fun openDeletionForUser(user: AdminUserModel) {
