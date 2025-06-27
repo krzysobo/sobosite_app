@@ -1,5 +1,6 @@
 package com.krzysobo.sobositeapp.viewmodel
 
+import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.sobositeapp.http.LoginResponse
 import com.krzysobo.sobositeapp.viewmodel.admin.AdminListUsersPageVM
 import com.krzysobo.sobositeapp.viewmodel.admin.AdminEditUserPageVM
@@ -90,6 +91,11 @@ fun actionLoginUser(data: LoginResponse) {
 
 suspend fun actionLogoutUser() {
     AllViewModels.userStateViewModel.doLogOutUser()
+    SoboRouter.navigateToLogin()
+}
+
+suspend fun doRefreshAdminUserList() {
+    AllViewModels.adminListUsersPageVM.doGetUsers()
 }
 
 //fun isCurrentRouteSet(): Boolean {

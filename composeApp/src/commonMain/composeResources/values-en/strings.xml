@@ -102,7 +102,8 @@
     <string name="user_is_staff">Is admin?</string>
     <string name="user_is_staff_desc">Is admin (staff)?</string>
 
-    <string name="create_user">Create a user</string>
+    <string name="create_user">Create</string>
+    <string name="refresh_user_list">Refresh</string>
 
     <string name="user_deletion_ok">USER ACCOUNT DELETION OK</string>
     <string name="user_deletion_ok_desc">The user account has been successfully deleted.</string>

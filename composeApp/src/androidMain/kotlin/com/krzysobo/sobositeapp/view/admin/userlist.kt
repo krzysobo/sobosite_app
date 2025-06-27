@@ -1,5 +1,6 @@
 package com.krzysobo.sobositeapp.view.admin
 
+import WaitingSpinner
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -24,7 +25,11 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
@@ -38,8 +43,11 @@ import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.sobositeapp.settings.AppRequestEditUser
 import com.krzysobo.sobositeapp.settings.SOBOSITE_ROUTE_HANDLE
 import com.krzysobo.sobositeapp.viewmodel.admin.AdminListUsersPageVM
+import com.krzysobo.sobositeapp.viewmodel.doRefreshAdminUserList
+import kotlinx.coroutines.launch
 import sobositeapp.composeapp.generated.resources.Res
 import sobositeapp.composeapp.generated.resources.create_user
+import sobositeapp.composeapp.generated.resources.refresh_user_list
 import sobositeapp.composeapp.generated.resources.user_is_active
 import sobositeapp.composeapp.generated.resources.user_is_staff
 import sobositeapp.composeapp.generated.resources.user_is_staff_desc
@@ -151,6 +159,7 @@ fun soboTableFooterAndroid(
 
 @Composable
 actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
+    val coroutineScope = rememberCoroutineScope()
 
     val footerTs = footerTextStyle.copy(
         fontSize = 13.sp
@@ -164,147 +173,183 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
         anyResText(AnyRes(PubRes.string.actions)),
     )
 
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxWidth()
-    ) {
-        // ---- FOOTER --> HEADER ----
-        stickyHeader {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 50.dp)
-                    .background(color = Color(red = 0xEE, green = 0xEE, blue = 0xEE, alpha = 0xFF))
-            ) {
-                soboTableFooterAndroid(
-                    columns = columns,
-                    options = listOf(2, 3, 5, 10, 20, 50, 100, 1000),
+    var showColumn = remember { mutableStateOf(true) }
+    if (showColumn.value) {
 
-                    pageNoInit = vm.pageNo.value,
-                    itemsNo = vm.itemsNo.value,
-                    totalPages = vm.totalPages(),
-                    curPageSizeInit = vm.pageSize.value,
-                    cbUpdatePageSize = { ps ->
-                        vm.pageSize.value = ps
-                        vm.pageNo.value = 1
-                        vm.updateItemOffsetByPage()
-                    },
-                    cbPagerClickPrevPage = {
-                        vm.pageNo.value -= 1
-                        vm.updateItemOffsetByPage()
-                    },
-                    cbPagerClickNextPage = {
-                        vm.pageNo.value += 1
-                        vm.updateItemOffsetByPage()
-                    },
-                    footerTextStyle = footerTs
-                )
-                Row {
-                    Button(onClick = {
-                        SoboRouter.navigateToRouteHandle(SOBOSITE_ROUTE_HANDLE.ADMIN_EDIT_USER.value)
-                    }) {
-                        Icon(
-                            modifier = Modifier
-                                .padding(end = 10.dp),
-                            imageVector = Icons.Default.Add,
-                            contentDescription = anyResText(AnyRes(Res.string.create_user))
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            // ---- FOOTER --> HEADER ----
+            stickyHeader {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 50.dp)
+                        .background(
+                            color = Color(
+                                red = 0xEE,
+                                green = 0xEE,
+                                blue = 0xEE,
+                                alpha = 0xFF
+                            )
                         )
-                        Text(anyResText(AnyRes(Res.string.create_user)))
+                ) {
+                    soboTableFooterAndroid(
+                        columns = columns,
+                        options = listOf(2, 3, 5, 10, 20, 50, 100, 1000),
+
+                        pageNoInit = vm.pageNo.value,
+                        itemsNo = vm.itemsNo.value,
+                        totalPages = vm.totalPages(),
+                        curPageSizeInit = vm.pageSize.value,
+                        cbUpdatePageSize = { ps ->
+                            vm.pageSize.value = ps
+                            vm.pageNo.value = 1
+                            vm.updateItemOffsetByPage()
+                        },
+                        cbPagerClickPrevPage = {
+                            vm.pageNo.value -= 1
+                            vm.updateItemOffsetByPage()
+                        },
+                        cbPagerClickNextPage = {
+                            vm.pageNo.value += 1
+                            vm.updateItemOffsetByPage()
+                        },
+                        footerTextStyle = footerTs
+                    )
+                    Row(modifier=Modifier.padding(start = 10.dp, end=10.dp)) {
+                        Button(
+                            modifier = Modifier
+                                .padding(end=5.dp)
+                                .weight(0.5f),
+                            onClick = {
+                                SoboRouter.navigateToRouteHandle(SOBOSITE_ROUTE_HANDLE.ADMIN_EDIT_USER.value)
+                            }) {
+                            Icon(
+                                modifier = Modifier
+                                    .padding(end = 10.dp),
+                                imageVector = Icons.Default.Add,
+                                contentDescription = anyResText(AnyRes(Res.string.create_user))
+                            )
+                            Text(anyResText(AnyRes(Res.string.create_user)))
+                        }
+
+                        Button(
+                            modifier = Modifier
+                                .weight(0.5f),
+                            onClick = {
+                                coroutineScope.launch {
+                                    showColumn.value = false
+                                    doRefreshAdminUserList()
+                                    showColumn.value = true
+                                }
+                            }) {
+                            Icon(
+                                modifier = Modifier
+                                    .padding(end = 10.dp),
+                                imageVector = Icons.Default.Refresh,
+                                contentDescription = anyResText(AnyRes(Res.string.refresh_user_list))
+                            )
+                            Text(anyResText(AnyRes(Res.string.refresh_user_list)))
+                        }
                     }
                 }
+
             }
+            // ---- /FOOTER --> HEADER ----
 
-        }
-        // ---- /FOOTER --> HEADER ----
+            // ---- CONTENT ----
+            if (vm.userList.value.isNotEmpty()) {
+                for (itemI in vm.itemOffset.value..vm.userList.value.indices.max()) {
+                    if (itemI >= vm.itemOffset.value + vm.pageSize.value) {
+                        break
+                    }
 
-        // ---- CONTENT ----
-        if (vm.userList.value.isNotEmpty()) {
-            for (itemI in vm.itemOffset.value..vm.userList.value.indices.max()) {
-                if (itemI >= vm.itemOffset.value + vm.pageSize.value) {
-                    break
-                }
+                    val user = vm.userList.value[itemI]
 
-                val user = vm.userList.value[itemI]
+                    item {
+                        val isActiveStr =
+                            if (user.is_active) anyResText(AnyRes(PubRes.string.yes)) else anyResText(
+                                AnyRes(PubRes.string.no)
+                            )
+                        val isStaffStr =
+                            if (user.is_staff) anyResText(AnyRes(PubRes.string.yes)) else anyResText(
+                                AnyRes(PubRes.string.no)
+                            )
 
-                item {
-                    val isActiveStr =
-                        if (user.is_active) anyResText(AnyRes(PubRes.string.yes)) else anyResText(
-                            AnyRes(PubRes.string.no)
-                        )
-                    val isStaffStr =
-                        if (user.is_staff) anyResText(AnyRes(PubRes.string.yes)) else anyResText(
-                            AnyRes(PubRes.string.no)
-                        )
-
-                    Card(
-                        modifier = Modifier
-                            .padding(all = 10.dp)
-                            .fillMaxWidth(),
-                        border = BorderStroke(width = 1.dp, color = Color.Blue)
-                    ) {
-                        Column(
+                        Card(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(bottom = 10.dp)
+                                .padding(all = 10.dp)
+                                .fillMaxWidth(),
+                            border = BorderStroke(width = 1.dp, color = Color.Blue)
                         ) {
-                            Text(
+                            Column(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(all = 7.dp),
-                                text = "${anyResText(AnyRes(PubRes.string.email))}: ${user.email}"
-                            )
-                            Text(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(all = 7.dp),
-                                text = "${anyResText(AnyRes(PubRes.string.full_name))}: " +
-                                        "${user.first_name} ${user.last_name}"
-                            )
-                            Text(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(all = 7.dp),
-                                text = "${anyResText(AnyRes(Res.string.user_is_active))} $isActiveStr  " +
-                                        "${anyResText(AnyRes(Res.string.user_is_staff_desc))}? $isStaffStr"
-                            )
-
-                            Row(
-                                modifier = Modifier
-                                    .padding(top = 10.dp)
-                                    .fillMaxWidth()
+                                    .padding(bottom = 10.dp)
                             ) {
-                                IconButton(
+                                Text(
                                     modifier = Modifier
-                                        .padding(end = 5.dp),
-                                    onClick = {
-                                        SoboRouter.navigateToRouteHandle(
-                                            SOBOSITE_ROUTE_HANDLE.ADMIN_EDIT_USER.value,
-                                            AppRequestEditUser(userId = user.id)
-                                        )
-                                    },
+                                        .fillMaxWidth()
+                                        .padding(all = 7.dp),
+                                    text = "${anyResText(AnyRes(PubRes.string.email))}: ${user.email}"
+                                )
+                                Text(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(all = 7.dp),
+                                    text = "${anyResText(AnyRes(PubRes.string.full_name))}: " +
+                                            "${user.first_name} ${user.last_name}"
+                                )
+                                Text(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(all = 7.dp),
+                                    text = "${anyResText(AnyRes(Res.string.user_is_active))} $isActiveStr  " +
+                                            "${anyResText(AnyRes(Res.string.user_is_staff_desc))}? $isStaffStr"
+                                )
+
+                                Row(
+                                    modifier = Modifier
+                                        .padding(top = 10.dp)
+                                        .fillMaxWidth()
                                 ) {
-                                    Icon(
-                                        imageVector = Icons.Default.Edit,
-                                        anyResText(AnyRes(PubRes.string.edit))
-                                    )
-                                }
-                                IconButton(
-                                    modifier = Modifier,
-                                    onClick = { vm.openDeletionForUser(user) }) {
-                                    Icon(
-                                        imageVector = Icons.Default.Delete,
-                                        contentDescription = anyResText(AnyRes(PubRes.string.delete))
-                                    )
+                                    IconButton(
+                                        modifier = Modifier
+                                            .padding(end = 5.dp),
+                                        onClick = {
+                                            SoboRouter.navigateToRouteHandle(
+                                                SOBOSITE_ROUTE_HANDLE.ADMIN_EDIT_USER.value,
+                                                AppRequestEditUser(userId = user.id)
+                                            )
+                                        },
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.Edit,
+                                            anyResText(AnyRes(PubRes.string.edit))
+                                        )
+                                    }
+                                    IconButton(
+                                        modifier = Modifier,
+                                        onClick = { vm.openDeletionForUser(user) }) {
+                                        Icon(
+                                            imageVector = Icons.Default.Delete,
+                                            contentDescription = anyResText(AnyRes(PubRes.string.delete))
+                                        )
+                                    }
                                 }
                             }
+
                         }
 
                     }
-
                 }
             }
-        }
-        // ---- /CONTENT ----
+            // ---- /CONTENT ----
 
+        }
+    } else {
+        WaitingSpinner()
     }
 }

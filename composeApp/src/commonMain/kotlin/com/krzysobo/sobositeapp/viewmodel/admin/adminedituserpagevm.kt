@@ -15,6 +15,7 @@ import com.krzysobo.sobositeapp.service.HttpService
 import com.krzysobo.sobositeapp.service.InvalidEmailException
 import com.krzysobo.sobositeapp.service.NetworkConnectionUnavailableException
 import com.krzysobo.sobositeapp.service.findNetworkExceptions
+import com.krzysobo.sobositeapp.viewmodel.doRefreshAdminUserList
 import com.krzysobo.sobositeapp.viewmodel.getUserToken
 import io.ktor.client.call.NoTransformationFoundException
 
@@ -148,6 +149,7 @@ class AdminEditUserPageVM : SoboViewModel(
             isApiError.value = false
             apiErrorDetails.value = ""
 
+            doRefreshAdminUserList()
             toggleRefreshCompose()
 
             return true

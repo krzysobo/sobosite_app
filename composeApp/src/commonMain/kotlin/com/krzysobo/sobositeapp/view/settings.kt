@@ -56,7 +56,6 @@ fun PageSobositeSettings() {
     val vm: SettingsPageVM = getSettingsPageVM()
     val coroutineScope = rememberCoroutineScope()
 
-
     vm.langSettings.lang = remember { mutableStateOf("") }
     vm.langSettings.useSystemLang = remember { mutableStateOf(false) }
     vm.langSettings.isErrorLang = remember { mutableStateOf(false) }

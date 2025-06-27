@@ -1,164 +1,156 @@
 <resources>
-    <string name="app_name">Sobosite App</string>
-    <string name="welcome_story_sobosite">Welcome to the Sobosite application.
-        It is a template on which you can develop your own client-server applications, cooperating by default with a backend based on the
-        Sobosite Project. This template will be useful for anyone who wants to develop applications
-        based on the client-server architecture, requiring login, registration,
-        password reminders and user management.
-    </string>
+    <string name="app_name">Application Sobosite</string>
+    <string name="welcome_story_sobosite">Bienvenue dans l'application Sobosite.
+Il s'agit d'un modèle permettant de développer vos propres applications client-serveur, fonctionnant par défaut avec un backend basé sur le projet Sobosite. Ce modèle sera utile à tous ceux qui souhaitent développer des applications basées sur l'architecture client-serveur, nécessitant une connexion, une inscription, des rappels de mot de passe et une gestion des utilisateurs.
+</string>
 
-    <string name="app_name_sobosite_desktop">Sobosite Desktop App</string>
-    <string name="app_name_android">Sobosite App</string>
+    <string name="app_name_sobosite_desktop">Application Sobosite</string>
+    <string name="app_name_android">Application Sobosite</string>
 
-    <string name="login_page">Login Page</string>
-    <string name="api_prefix_s">API PREFIX: %1$s</string>
-    <string name="api_test_sd">API TEST PREFIX: %1$s count: %2$d</string>
+    <string name="login_page">Page de connexion</string>
+    <string name="api_prefix_s">PRÉFIXE API : %1$s</string>
+    <string name="api_test_sd">PRÉFIXE DE TEST API : %1$s nombre : %2$d</string>
 
-    <string name="register">Register</string>
-    <string name="user_registration">User Registration</string>
-    <string name="registration_confirmation">Registration Confirmation</string>
+    <string name="register">S'inscrire</string>
+    <string name="user_registration">Enregistrement utilisateur</string>
+    <string name="registration_confirmation">Confirmation d'inscription</string>
 
-    <string name="register_confirm">Confirm registration</string>
-    <string name="confirm_your_registration">Confirm your Registration</string>
-    <string name="token">Token</string>
-    <string name="your_token">Your token</string>
-    <string name="token_required">Token is required</string>
-    <string name="registration_confirmed_ok">Registration Confirmed OK</string>
+    <string name="register_confirm">Confirmer l'inscription</string>
+    <string name="confirm_your_registration">Confirmer votre inscription</string>
+    <string name="token">Jeton</string>
+    <string name="your_token">Votre jeton</string>
+    <string name="token_required">Jeton requis</string>
+    <string name="registration_confirmed_ok">Inscription confirmée</string>
     <string name="registration_confirmed_ok_desc">
-        Your registration has been successfully confirmed. You may now log in using
-        your credentials (login and password).
-    </string>
+Votre inscription a été confirmée. Vous pouvez maintenant vous connecter avec vos identifiants (identifiant et mot de passe).
+</string>
 
-    <string name="registration_confirmation_failure">Registration Confirmation FAILURE</string>
+    <string name="registration_confirmation_failure">ÉCHEC de la confirmation d'inscription</string>
     <string name="registration_confirmation_failure_desc">
-        Error occurred when trying to confirm your registration -
-        the data is incorrect or the connection is faulty.
-        Please your internet connection and provide the correct data from
-        your Registration Confirmation e-mail.
-    </string>
+Une erreur s'est produite lors de la confirmation de votre inscription : les données sont incorrectes ou la connexion est défectueuse.
+Veuillez vérifier votre connexion internet et fournir les données correctes figurant dans votre e-mail de confirmation d'inscription.
+</string>
 
-    <string name="registration_ok">Registration OK</string>
-    <string name="error_registration_failure">Registration Failure</string>
+    <string name="registration_ok">Inscription OK</string>
+    <string name="error_registration_failure">Échec de l'inscription</string>
 
     <string name="registration_ok_desc">
-        You have just registered in our application.\n\n
-        You still need to confirm it - wait for the confirmation email, check your
-        mailbox (including Spam). To confirm, click on the activation link in the
-        email, or in the application in the 'Confirm Registration' view, pasting EMAIL and
-        TOKEN and clicking 'Confirm registration'
+    Vous venez de vous inscrire sur notre application.\n\n
+    Vous devez encore confirmer votre inscription :
+        attendez l'e-mail de confirmation et vérifiez votre boîte
+        mail (y compris les spams). Pour confirmer, cliquez sur le
+        lien d'activation dans l'e-mail ou dans l'application, dans la
+        section « Confirmer l'inscription », en collant l'adresse
+        e-mail et le jeton, puis en cliquant sur « Confirmer l'inscription ».
     </string>
 
-    <string name="reset_pass">Reset password</string>
-    <string name="reset_your_password">Reset Your Password</string>
-    <string name="reset_pass_confirm">Confirm password reset</string>
-    <string name="password_reset">Password Reset</string>
-    <string name="password_reset_ok">Password Reset OK</string>
+    <string name="reset_pass">Réinitialiser le mot de passe</string>
+    <string name="reset_your_password">Réinitialiser votre mot de passe</string>
+    <string name="reset_pass_confirm">Confirmer la réinitialisation du mot de passe</string>
+    <string name="password_reset">Réinitialisation du mot de passe</string>
+    <string name="password_reset_ok">Réinitialisation du mot de passe OK</string>
     <string name="password_reset_ok_desc">
-        Your password has been successfully changed.
-    </string>
-    <string name="error_password_reset_confirmation_error">Password Reset Confirmation Error</string>
+Votre mot de passe a été modifié avec succès. </string>
+    <string name="error_password_reset_confirmation_error">Erreur de confirmation de réinitialisation du mot de passe</string>
     <string name="error_password_reset_confirmation_error_desc">
-        Error occurred when trying to confirm password reset -
-        the data is incorrect. Please provide the correct data from
-        your password reset e-mail.
-    </string>
+Une erreur s'est produite lors de la confirmation de la réinitialisation du mot de passe : les données sont incorrectes. Veuillez fournir les données correctes figurant dans votre e-mail de réinitialisation du mot de passe.
+</string>
 
-    <string name="confirm_password_reset">Confirm Your Password Reset</string>
-    <string name="confirm_password_reset_long">Confirm your Password Reset - update your password</string>
+    <string name="confirm_password_reset">Confirmez la réinitialisation de votre mot de passe</string>
+    <string name="confirm_password_reset_long">Confirmez la réinitialisation de votre mot de passe - mettez à jour votre mot de passe</string>
     <string name="password_reset_desc_s">
-        If your mail %1$s exists in our database, the password reset message will be sent.
-        Check your mailbox, including 'SPAM' folders!
-    </string>
-    <string name="dashboard">Dashboard</string>
-    <string name="dashboard_long_s">%1$s Dashboard - user's own homepage</string>
-    <string name="profile">Profile</string>
-    <string name="update_profile">Update Profile</string>
-    <string name="profile_updated">PROFILE UPDATED</string>
-    <string name="profile_updated_ok">Your profile has been successfully updated.</string>
+Si votre adresse e-mail %1$s existe dans notre base de données, le message de réinitialisation du mot de passe vous sera envoyé.
+Vérifiez votre boîte mail, y compris vos dossiers « SPAM » !
+</string>
+    <string name="dashboard">Tableau de bord</string>
+    <string name="dashboard_long_s">%1$s Tableau de bord - page d'accueil de l'utilisateur</string>
+    <string name="profile">Profil</string>
+    <string name="update_profile">Mettre à jour le profil</string>
+    <string name="profile_updated">PROFIL MIS À JOUR</string>
+    <string name="profile_updated_ok">Votre profil a été mis à jour avec succès.</string>
 
-    <string name="open_password_edition">Open password edition</string>
-    <string name="close_password_edition">Close password edition</string>
+    <string name="open_password_edition">Ouvrir la modification du mot de passe</string>
+    <string name="close_password_edition">Fermer la modification du mot de passe</string>
 
-    <string name="api_host_url">API Host URL</string>
-    <string name="api_host_url_desc">API Host URL, eg. http://localhost:9000/</string>
-    <string name="api_host_url_required">API Host URL is required</string>
+    <string name="api_host_url">URL de l'hôte API</string>
+    <string name="api_host_url_desc">URL de l'hôte API, par exemple http://localhost:9000/</string>
+    <string name="api_host_url_required">L'URL de l'hôte API est obligatoire</string>
 
-    <string name="api_prefix">API Prefix</string>
-    <string name="api_prefix_desc">API Prefix after HOST URL, eg. /api/v1</string>
-    <string name="api_prefix_required">API Prefix is required</string>
+    <string name="api_prefix">Préfixe API</string>
+    <string name="api_prefix_desc">Préfixe API après l'URL de l'hôte, par exemple /api/v1</string>
+    <string name="api_prefix_required">Préfixe API est obligatoire</string>
 
+    <string name="save_user_data">Enregistrer les données utilisateur</string>
+    <string name="user_saved_ok">L'utilisateur a été enregistré.</string>
+    <string name="user_saved_ok_desc">L'utilisateur a été enregistré.</string>
+    <string name="user_saving_error">Erreur d'enregistrement de l'utilisateur.</string>
 
-    <string name="save_user_data">Save User Data</string>
-    <string name="user_saved_ok">User has been saved.</string>
-    <string name="user_saved_ok_desc">The user has been successfully saved.</string>
-    <string name="user_saving_error">User saving error.</string>
+    <string name="user_is_active">Est actif ?</string>
+    <string name="user_is_active_desc">Est actif (peut se connecter) ?</string>
 
-    <string name="user_is_active">Is active?</string>
-    <string name="user_is_active_desc">Is active (able to log in)?</string>
+    <string name="user_is_staff">Est administrateur ?</string>
+    <string name="user_is_staff_desc">Est administrateur (personnel) ?</string>
 
-    <string name="user_is_staff">Is admin?</string>
-    <string name="user_is_staff_desc">Is admin (staff)?</string>
+    <string name="create_user">Créer</string>
+    <string name="refresh_user_list">Actualiser</string>
 
-    <string name="create_user">Create a user</string>
+    <string name="user_deletion_ok">SUPPRESSION DU COMPTE UTILISATEUR OK</string>
+    <string name="user_deletion_ok_desc">Le compte utilisateur a été supprimé avec succès.</string>
 
-    <string name="user_deletion_ok">USER ACCOUNT DELETION OK</string>
-    <string name="user_deletion_ok_desc">The user account has been successfully deleted.</string>
-
-    <string name="user_deletion_s">Deletion of the account %1$s</string>
+    <string name="user_deletion_s">Suppression du compte %1$s</string>
     <string name="user_deletion_qs">
-        Delete the user account %1$s (%2$s %3$s)?
+        Supprimer le compte utilisateur %1$s (%2$s %3$s) ?
     </string>
 
-    <string name="users">Users</string>
-    <string name="user_edition">User Edition</string>
+    <string name="users">Utilisateurs</string>
+    <string name="user_edition">Édition Utilisateur</string>
 
     <!-- errors -->
-    <string name="error_occurred">Error has occurred!</string>
+    <string name="error_occurred">Une erreur s'est produite !</string>
 
     <!-- HttpService:100 TODO -->
-    <string name="error_network_unavailable">Network is unavailable - check your connection.</string>
-    <string name="error_network_error">Network error</string>
-    <string name="error_network_error_desc">Network error has occurred. Please check your network connection and try again.</string>
-    <string name="error_network_error_s">Network error. Please check your network connection or contact your site administrator. Message: %1$s</string>
+    <string name="error_network_unavailable">Réseau indisponible - Vérifiez votre connexion.</string>
+    <string name="error_network_error">Erreur réseau</string>
+    <string name="error_network_error_desc">Une erreur réseau s'est produite. Veuillez vérifier votre connexion réseau et réessayer.</string>
+    <string name="error_network_error_s">Erreur réseau. Veuillez vérifier votre connexion réseau ou contacter l'administrateur de votre site. Message : %1$s</string>
 
     <!-- HttpService:107 TODO -->
-    <string name="error_no_api_server_found_s">no API server found at %1$s - check your network connection and client configuration.</string>
+    <string name="error_no_api_server_found_s">Aucun serveur API trouvé à %1$s - Vérifiez votre connexion réseau et la configuration client.</string>
 
     <!-- HttpService:141 TODO -->
-    <string name="error_incorrect_login_pass">Incorrect login or password.</string>
-    <string name="error_login_error">Login Error</string>
-    <string name="error_bad_credentials_long_p1">Bad credentials (login or password).
-        Please provide your valid credentials and try again, or
-    </string>
+    <string name="error_incorrect_login_pass">Identifiant ou mot de passe incorrect.</string>
+    <string name="error_login_error">Erreur de connexion</string>
+    <string name="error_bad_credentials_long_p1">Identifiants incorrects (identifiant ou mot de passe). Veuillez fournir vos identifiants valides et réessayer, ou
+</string>
 
-    <string name="error_bad_credentials_long_p2">*register*</string>
-    <string name="error_bad_credentials_long_p3">if you don't have an account here, and then</string>
-    <string name="error_bad_credentials_long_p4">*activate*</string>
-    <string name="error_bad_credentials_long_p5">your newly created account.</string>
+    <string name="error_bad_credentials_long_p2">*inscrivez-vous*</string>
+    <string name="error_bad_credentials_long_p3">si vous n'avez pas de compte ici, puis</string>
+    <string name="error_bad_credentials_long_p4">*activez*</string>
+    <string name="error_bad_credentials_long_p5">votre nouveau compte.</string>
 
     <!-- HttpService:252 TODO -->
-    <string name="error_not_authorized">Not authorized.</string>
+    <string name="error_not_authorized">Non autorisé.</string>
 
     <!-- HttpService:143, 446 TODO -->
-    <string name="error_api_error">API Error</string>
-    <string name="error_api_error_desc">API Error. Please check your network connection and settings.</string>
+    <string name="error_api_error">Erreur API</string>
+    <string name="error_api_error_desc">Erreur API. Veuillez vérifier votre connexion réseau et vos paramètres.</string>
 
     <!-- HttpService:276, 300 TODO -->
-    <string name="error_connection_failed">Connection failed.</string>
+    <string name="error_connection_failed">Échec de la connexion.</string>
 
     <!-- HttpService:205 TODO -->
-    <string name="error_could_not_confirm_registration_s">Could not confirm registration of %1$s.</string>
+    <string name="error_could_not_confirm_registration_s">Impossible de confirmer l'inscription de %1$s.</string>
 
     <!-- HttpService:436 TODO -->
-    <string name="error_account_exists_s">An account with email %1$s already exists.</string>
+    <string name="error_account_exists_s">Un compte avec l'adresse e-mail %1$s existe déjà.</string>
 
     <!-- HttpService:440 TODO -->
-    <string name="error_email_invalid_s">Email %1$s is invalid.</string>
-    <string name="error_unknown_error">An unknown API error occurred, please contact your site administrator.</string>
-    <string name="error_profile_updating_error">PROFILE UPDATING ERROR</string>
+    <string name="error_email_invalid_s">L'adresse e-mail %1$s n'est pas valide.</string>
+    <string name="error_unknown_error">Une erreur API inconnue s'est produite. Veuillez contacter l'administrateur de votre site.</string>
+    <string name="error_profile_updating_error">ERREUR DE MISE À JOUR DU PROFIL</string>
 
     <string name="desc_sobosite_dashboard">
-        This is just a Sobosite application template. Feel free to modify and adjust this Dashboard for your needs.
-        Remember, that the basic goal of a dashboard is to provide users with 'their own homepage'.
-    </string>
+        Ceci est simplement un modèle d'application Sobosite. N'hésitez pas à modifier et à ajuster ce tableau de bord selon vos besoins.
+        N'oubliez pas que l'objectif principal d'un tableau de bord est de fournir aux utilisateurs « leur propre page d'accueil ».
+</string>
 </resources>

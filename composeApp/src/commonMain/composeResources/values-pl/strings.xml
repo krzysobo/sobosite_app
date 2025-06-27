@@ -105,7 +105,8 @@
     <string name="user_is_staff">Admin?</string>
     <string name="user_is_staff_desc">Jest adminem?</string>
 
-    <string name="create_user">Utwórz konto użytkownika</string>
+    <string name="create_user">Utwórz</string>
+    <string name="refresh_user_list">Odśwież</string>
 
     <string name="user_deletion_ok">POMYŚLNE SKASOWANIE KONTA</string>
     <string name="user_deletion_ok_desc">Konto użytkownika zostało pomyślnie skasowane.</string>

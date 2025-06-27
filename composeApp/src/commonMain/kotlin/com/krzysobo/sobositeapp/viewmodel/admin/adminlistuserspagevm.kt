@@ -12,6 +12,7 @@ import com.krzysobo.sobositeapp.service.HttpException
 import com.krzysobo.sobositeapp.service.HttpService
 import com.krzysobo.sobositeapp.service.NetworkConnectionUnavailableException
 import com.krzysobo.sobositeapp.service.findNetworkExceptions
+import com.krzysobo.sobositeapp.viewmodel.doRefreshAdminUserList
 import com.krzysobo.sobositeapp.viewmodel.getUserToken
 import io.ktor.client.call.NoTransformationFoundException
 import kotlin.math.ceil
@@ -68,6 +69,7 @@ class AdminListUsersPageVM : SoboViewModel(
                 userList2.value = AdminUserListResponse()
                 itemsNo.value = 0
             }
+            userListUpdated.value = true
         } catch (e: NetworkConnectionUnavailableException) {
             isApiError.value = true
             apiErrorDetails.value = "${e.message}"
@@ -96,6 +98,7 @@ class AdminListUsersPageVM : SoboViewModel(
             isApiError.value = false
             apiErrorDetails.value = ""
 
+            doRefreshAdminUserList()
             toggleRefreshCompose()
 
             return true
