@@ -1,4 +1,8 @@
 <resources>
+    <string name="about">À propos</string>
+
+
+
     <string name="app_name">Application Sobosite</string>
     <string name="welcome_story_sobosite">Bienvenue dans l'application Sobosite.
 Il s'agit d'un modèle permettant de développer vos propres applications client-serveur, fonctionnant par défaut avec un backend basé sur le projet Sobosite. Ce modèle sera utile à tous ceux qui souhaitent développer des applications basées sur l'architecture client-serveur, nécessitant une connexion, une inscription, des rappels de mot de passe et une gestion des utilisateurs.

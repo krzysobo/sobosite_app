@@ -33,9 +33,6 @@ kotlin {
 
 
     sourceSets {
-        val desktopMain by getting
-
-
         val androidMain by getting {
             dependencies {
                 implementation(compose.preview)
@@ -69,14 +66,18 @@ kotlin {
             }
         }
 
-        desktopMain.dependencies {
-            implementation(compose.desktop.currentOs)
-            implementation(libs.kotlinx.coroutines.swing)
-            implementation(compose.materialIconsExtended)  // icons for desktop/others
+        val desktopMain by getting {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+                implementation(libs.kotlinx.coroutines.swing)
+                implementation(compose.materialIconsExtended)  // icons for desktop/others
 
-            implementation(libs.ktor.client.okhttp)    // for JVM
-            implementation(libs.ktor.client.cio)    // for JVM
-            implementation(project(":soboAppTpl", ""))
+                implementation(libs.ktor.client.okhttp)    // for JVM
+                implementation(libs.ktor.client.cio)    // for JVM
+                implementation(project(":soboAppTpl", ""))
+//                kotlin.srcDir("$buildDir/generated/source/kmp/main/kotlin")
+
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 <resources>
+    <string name="about">Informacje</string>
 
     <string name="app_name">Sobosite App</string>
     <string name="welcome_s">Witamy w %1$s</string>

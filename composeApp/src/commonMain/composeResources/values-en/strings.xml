@@ -1,4 +1,6 @@
 <resources>
+    <string name="about">About</string>
+
     <string name="app_name">Sobosite App</string>
     <string name="welcome_story_sobosite">Welcome to the Sobosite application.
         It is a template on which you can develop your own client-server applications, cooperating by default with a backend based on the
