@@ -10,7 +10,15 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.serialization)
+    id("build-acme-resources")
 }
+
+soboStringResourcesConfig {
+    resourcesDir.set("src/commonMain/composeResources")
+    outputDir.set("${buildDir}/generated/source/kmp/main/kotlin/com/krzysobo/soboapptpl/generated")
+    resourcesOutputPackage.set("com.krzysobo.soboapptpl.generated")
+}
+
 
 kotlin {
 
@@ -27,35 +35,40 @@ kotlin {
     sourceSets {
         val desktopMain by getting
 
-        androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
 
-            implementation(libs.ktor.client.okhttp)
-            implementation(project(":soboAppTpl", ""))
+        val androidMain by getting {
+            dependencies {
+                implementation(compose.preview)
+                implementation(libs.androidx.activity.compose)
+
+                implementation(libs.ktor.client.okhttp)
+                implementation(project(":soboAppTpl", ""))
+            }
         }
 
-        commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(compose.materialIconsExtended)  // icons for desktop/others
-            implementation(libs.multiplatform.settings)
+        val commonMain by getting {
+            dependencies {
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.ui)
+                implementation(compose.components.resources)
+                implementation(compose.components.uiToolingPreview)
+                implementation(libs.androidx.lifecycle.viewmodel)
+                implementation(libs.androidx.lifecycle.runtime.compose)
+                implementation(compose.materialIconsExtended)  // icons for desktop/others
+                implementation(libs.multiplatform.settings)
 
-            implementation(libs.ktor.client.auth)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.serialization.kotlinx.json)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(project(":soboAppTpl", ""))
-
-
+                implementation(libs.ktor.client.auth)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(project(":soboAppTpl", ""))
+                kotlin.srcDir("$buildDir/generated/source/kmp/main/kotlin")
+            }
         }
+
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)

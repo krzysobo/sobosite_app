@@ -25,6 +25,8 @@ class MainActivity : ComponentActivity() {
 //        var xxx: Int = 0
 
         setContent {
+//            LocalConfiguration.current.setLocale(Locale.forLanguageTag("fr"))
+//            LocalConfiguration.current.locales[0].language = "fr"
 //            println("TESTXX::: XXX: $xxx")
             LocaleManager.useLocaleFromAppSettings()
 //            xxx += 1

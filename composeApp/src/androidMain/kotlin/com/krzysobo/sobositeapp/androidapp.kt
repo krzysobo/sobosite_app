@@ -46,7 +46,7 @@ fun getMenuItemsByUserStatus(
 @Preview
 fun SobositeAndroidApp(cntx: Int =0) {
     println("--- STARTING SobositeAndroidApp --- ")
-    LocaleManager.useLocaleFromAppSettings()
+//    LocaleManager.useLocaleFromAppSettings()
 
     SoboRouter.initRouter(
         routes = sobositeRoutes,
