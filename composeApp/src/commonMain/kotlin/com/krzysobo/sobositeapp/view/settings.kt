@@ -2,21 +2,15 @@ package com.krzysobo.sobositeapp.view
 
 import WaitingSpinner
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Web
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonSkippableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -25,15 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import com.krzysobo.soboapptpl.pubres.PubRes
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.api_host_url
-import sobositeapp.composeapp.generated.resources.api_host_url_desc
-import sobositeapp.composeapp.generated.resources.api_host_url_required
-import sobositeapp.composeapp.generated.resources.api_prefix
-import sobositeapp.composeapp.generated.resources.api_prefix_desc
-import sobositeapp.composeapp.generated.resources.api_prefix_required
 import com.krzysobo.soboapptpl.service.AnyRes
-import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.viewmodel.AppViewModelVM
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
@@ -41,14 +27,12 @@ import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.SettingSelectLanguage
 import com.krzysobo.soboapptpl.widgets.SettingUseSystemLang
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
-import com.krzysobo.soboapptpl.widgets.menus.DrawerData
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.settings.langListSoboSite
 import com.krzysobo.sobositeapp.viewmodel.SettingsPageVM
 import com.krzysobo.sobositeapp.viewmodel.getSettingsPageVM
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.Calendar
 
 //@NonSkippableComposable
 @Composable
@@ -119,11 +103,11 @@ fun PageSobositeSettings() {
                         vm.clearApiHostUrlError()
                     },
                     modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                    labelText = anyResText(AnyRes(Res.string.api_host_url)),
-                    placeHolderText = anyResText(AnyRes(Res.string.api_host_url_desc)),
+                    labelText = anyResText(AnyRes(AppRes.string.api_host_url)),
+                    placeHolderText = anyResText(AnyRes(AppRes.string.api_host_url_desc)),
                     leadingIcon = leadingIcon,
                     isError = vm.isErrorApiHostUrl.value,
-                    errorText = anyResText(AnyRes(Res.string.api_host_url_required)),
+                    errorText = anyResText(AnyRes(AppRes.string.api_host_url_required)),
                     focusManager = focusManager
                 )
             }
@@ -140,11 +124,11 @@ fun PageSobositeSettings() {
                         vm.clearApiHostUrlError()
                     },
                     modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                    labelText = anyResText(AnyRes(Res.string.api_prefix)),
-                    placeHolderText = anyResText(AnyRes(Res.string.api_prefix_desc)),
+                    labelText = anyResText(AnyRes(AppRes.string.api_prefix)),
+                    placeHolderText = anyResText(AnyRes(AppRes.string.api_prefix_desc)),
                     leadingIcon = leadingIcon,
                     isError = vm.isErrorApiPrefix.value,
-                    errorText = anyResText(AnyRes(Res.string.api_prefix_required)),
+                    errorText = anyResText(AnyRes(AppRes.string.api_prefix_required)),
                     focusManager = focusManager
                 )
             }

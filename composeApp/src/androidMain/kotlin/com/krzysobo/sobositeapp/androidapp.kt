@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
-import com.krzysobo.soboapptpl.service.LocaleManager
 import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.soboapptpl.viewmodel.AppViewModelVM
 import com.krzysobo.sobositeapp.settings.SOBOSITE_ROUTE_HANDLE
@@ -46,7 +45,6 @@ fun getMenuItemsByUserStatus(
 @Preview
 fun SobositeAndroidApp(cntx: Int =0) {
     println("--- STARTING SobositeAndroidApp --- ")
-//    LocaleManager.useLocaleFromAppSettings()
 
     SoboRouter.initRouter(
         routes = sobositeRoutes,

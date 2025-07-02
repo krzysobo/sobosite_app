@@ -23,9 +23,9 @@ interface SoboStringResourcesExtension {
 }
 
 
-class BuildAcmeResourcesPlugin : Plugin<Project> {
+class BuildSoboResourcesPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        println("\n====>  Build Acme ALL Resources Plugin Started - it is here!!!  ${this.javaClass.simpleName} applied on ${project.name}")
+        println("\n====>  Build Sobo ALL Resources Plugin Started - it is here!!!  ${this.javaClass.simpleName} applied on ${project.name}")
         val extension =
             project.extensions.create<SoboStringResourcesExtension>(
                 "soboStringResourcesConfig"
@@ -38,9 +38,9 @@ class BuildAcmeResourcesPlugin : Plugin<Project> {
                     resourcesOutputFile.convention("StringResources.kt")
                 }
 
-        project.tasks.register<BuildAcmeStringResourcesTask>(
-            "buildAcmeStringResourcesTask",
-            BuildAcmeStringResourcesTask::class.java
+        project.tasks.register<BuildSoboStringResourcesTask>(
+            "buildSoboStringResourcesTask",
+            BuildSoboStringResourcesTask::class.java
         ) {
             group = "build"
             description =
@@ -55,7 +55,7 @@ class BuildAcmeResourcesPlugin : Plugin<Project> {
         }
 
         project.tasks.named("generateResourceAccessorsForCommonMain") {
-            dependsOn("buildAcmeStringResourcesTask")
+            dependsOn("buildSoboStringResourcesTask")
         }
 
 
@@ -68,7 +68,7 @@ class BuildAcmeResourcesPlugin : Plugin<Project> {
 }
 
 
-abstract class BuildAcmeStringResourcesTask : org.gradle.api.DefaultTask() {
+abstract class BuildSoboStringResourcesTask : org.gradle.api.DefaultTask() {
     @get:InputDirectory
     abstract val resourcesDir: org.gradle.api.file.DirectoryProperty
 
@@ -160,7 +160,7 @@ abstract class BuildAcmeStringResourcesTask : org.gradle.api.DefaultTask() {
 
     @org.gradle.api.tasks.TaskAction
     fun generate() {
-        println("\n======> BuildAcmeStringResourcesTask is here. Working...")
+        println("\n======> BuildSoboStringResourcesTask is here. Working...")
         println("==================================> Generating StringResources.kt")
         val resourceMap = mutableMapOf<String, Map<String, String>>()
 

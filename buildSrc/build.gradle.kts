@@ -21,9 +21,9 @@ gradlePlugin {
             id = "hello-world-class"
             implementationClass = "HelloWorldPlugin"
         }
-        create("buildAcmeResourcesPlugins") {
-            id = "build-acme-resources"
-            implementationClass = "BuildAcmeResourcesPlugin"
+        create("buildSoboResourcesPlugins") {
+            id = "build-sobo-resources"
+            implementationClass = "BuildSoboResourcesPlugin"
         }
     }
 }

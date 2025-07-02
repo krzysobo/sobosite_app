@@ -18,16 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.confirm_your_registration
-import sobositeapp.composeapp.generated.resources.registration_confirmation
-import sobositeapp.composeapp.generated.resources.registration_confirmation_failure
-import sobositeapp.composeapp.generated.resources.registration_confirmation_failure_desc
-import sobositeapp.composeapp.generated.resources.registration_confirmed_ok
-import sobositeapp.composeapp.generated.resources.registration_confirmed_ok_desc
-import sobositeapp.composeapp.generated.resources.token
-import sobositeapp.composeapp.generated.resources.token_required
-import sobositeapp.composeapp.generated.resources.your_token
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
@@ -35,6 +25,7 @@ import com.krzysobo.soboapptpl.widgets.LoginWidget
 import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.viewmodel.RegisterConfirmPageVM
 import com.krzysobo.sobositeapp.viewmodel.getRegisterConfirmPageVM
 import kotlinx.coroutines.launch
@@ -64,21 +55,21 @@ fun PageSobositeRegisterConfirm() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             item {
-                PageHeader(anyResText(AnyRes(Res.string.registration_confirmation)))
+                PageHeader(anyResText(AnyRes(AppRes.string.registration_confirmation)))
             }
 
             item {
 
                 if (vm.isFormSent.value) {
                     MessageBox(
-                        "* ${anyResText(AnyRes(Res.string.registration_confirmed_ok))} *",
-                        anyResText(AnyRes(Res.string.registration_confirmed_ok_desc))
+                        "* ${anyResText(AnyRes(AppRes.string.registration_confirmed_ok))} *",
+                        anyResText(AnyRes(AppRes.string.registration_confirmed_ok_desc))
                     )
                 } else {
                     if (vm.isApiError.value) {
                         ErrorMessageBox(
-                            "* ${anyResText(AnyRes(Res.string.registration_confirmation_failure))} *",
-                            anyResText(AnyRes(Res.string.registration_confirmation_failure_desc))
+                            "* ${anyResText(AnyRes(AppRes.string.registration_confirmation_failure))} *",
+                            anyResText(AnyRes(AppRes.string.registration_confirmation_failure_desc))
                         )
                     }
 
@@ -111,11 +102,11 @@ fun PageSobositeRegisterConfirm() {
                             vm.clearTokenError()
                         },
                         modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                        labelText = anyResText(AnyRes(Res.string.token)),
-                        placeHolderText = anyResText(AnyRes(Res.string.your_token)),
+                        labelText = anyResText(AnyRes(AppRes.string.token)),
+                        placeHolderText = anyResText(AnyRes(AppRes.string.your_token)),
                         leadingIcon = leadingIcon,
                         isError = vm.isErrorToken.value,
-                        errorText = anyResText(AnyRes(Res.string.token_required)),
+                        errorText = anyResText(AnyRes(AppRes.string.token_required)),
                         focusManager = focusManager
                     )
 
@@ -132,7 +123,7 @@ fun PageSobositeRegisterConfirm() {
                             }
                         },
                         modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.confirm_your_registration))) }
+                    ) { Text(anyResText(AnyRes(AppRes.string.confirm_your_registration))) }
                 }
             }
         }

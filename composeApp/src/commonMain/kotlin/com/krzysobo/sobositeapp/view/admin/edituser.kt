@@ -20,15 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.close_password_edition
-import sobositeapp.composeapp.generated.resources.open_password_edition
-import sobositeapp.composeapp.generated.resources.save_user_data
-import sobositeapp.composeapp.generated.resources.user_is_active_desc
-import sobositeapp.composeapp.generated.resources.user_is_staff_desc
-import sobositeapp.composeapp.generated.resources.user_saved_ok
-import sobositeapp.composeapp.generated.resources.user_saved_ok_desc
-import sobositeapp.composeapp.generated.resources.user_saving_error
 import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
@@ -38,6 +29,7 @@ import com.krzysobo.soboapptpl.widgets.LoginWidget
 import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.viewmodel.admin.AdminEditUserPageVM
 import com.krzysobo.sobositeapp.viewmodel.getAdminEditUserPageVM
 import kotlinx.coroutines.launch
@@ -96,12 +88,12 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
             item {
                 if (vm.isFormSent.value) {
                     MessageBox(
-                        "* ${anyResText(AnyRes(Res.string.user_saved_ok))} *",
-                        anyResText(AnyRes(Res.string.user_saved_ok_desc))
+                        "* ${anyResText(AnyRes(AppRes.string.user_saved_ok))} *",
+                        anyResText(AnyRes(AppRes.string.user_saved_ok_desc))
                     )
                 } else if (vm.isApiError.value) {
                     ErrorMessageBox(
-                        "* ${anyResText(AnyRes(Res.string.user_saving_error))} *",
+                        "* ${anyResText(AnyRes(AppRes.string.user_saving_error))} *",
                         vm.apiErrorDetails.value
                     )
                 }
@@ -173,7 +165,7 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                     } else {
                         anyResText(AnyRes(PubRes.string.no))
                     }
-                    Text("${anyResText(AnyRes(Res.string.user_is_active_desc))} $isActiveStr")
+                    Text("${anyResText(AnyRes(AppRes.string.user_is_active_desc))} $isActiveStr")
                 }
             }
 
@@ -190,7 +182,7 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                     } else {
                         anyResText(AnyRes(PubRes.string.no))
                     }
-                    Text("${anyResText(AnyRes(Res.string.user_is_staff_desc))} $isStaffStr")
+                    Text("${anyResText(AnyRes(AppRes.string.user_is_staff_desc))} $isStaffStr")
                 }
 
 
@@ -202,7 +194,7 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                                 vm.isPassChangeOpen.value = false
                             },
                             modifier = Modifier.padding(all = 10.dp)
-                        ) { Text(anyResText(AnyRes(Res.string.close_password_edition))) }
+                        ) { Text(anyResText(AnyRes(AppRes.string.close_password_edition))) }
                     }
 
                     /**
@@ -249,7 +241,7 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                             vm.isPassChangeOpen.value = true
                         },
                         modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.open_password_edition))) }
+                    ) { Text(anyResText(AnyRes(AppRes.string.open_password_edition))) }
 
                 }
                 // =============================================================
@@ -267,7 +259,7 @@ fun PageSobositeAdminEditUser(editedUserId: String = "") {
                         }
                     },
                     modifier = Modifier.padding(all = 10.dp)
-                ) { Text(anyResText(AnyRes(Res.string.save_user_data))) }
+                ) { Text(anyResText(AnyRes(AppRes.string.save_user_data))) }
             }
         }
 

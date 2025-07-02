@@ -1,29 +1,24 @@
 package com.krzysobo.sobositeapp.view
 
 import WaitingSpinner
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import com.krzysobo.soboapptpl.pubres.PubRes
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.error_api_error
-import sobositeapp.composeapp.generated.resources.user_deletion_ok
-import sobositeapp.composeapp.generated.resources.user_deletion_ok_desc
-import sobositeapp.composeapp.generated.resources.user_deletion_qs
-import sobositeapp.composeapp.generated.resources.user_deletion_s
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
 import com.krzysobo.soboapptpl.widgets.MessageBox
-import com.krzysobo.sobositeapp.viewmodel.getAdminListUsersPageVM
-import com.krzysobo.sobositeapp.viewmodel.admin.AdminListUsersPageVM
 import com.krzysobo.soboapptpl.widgets.ToggleableDialog
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.view.admin.ShowUsersList
+import com.krzysobo.sobositeapp.viewmodel.admin.AdminListUsersPageVM
+import com.krzysobo.sobositeapp.viewmodel.getAdminListUsersPageVM
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -46,10 +41,10 @@ fun deletionDialog(vm: AdminListUsersPageVM, coroutineScope: CoroutineScope) {
                     vm.showUserList.value = true
                 }
             },
-            dialogTitle = anyResText(AnyRes(Res.string.user_deletion_s, arrayOf(userToDelete.email))),
+            dialogTitle = anyResText(AnyRes(AppRes.string.user_deletion_s, arrayOf(userToDelete.email))),
             dialogText = anyResText(
                 AnyRes(
-                    Res.string.user_deletion_qs,
+                    AppRes.string.user_deletion_qs,
                     arrayOf(userToDelete.email, userToDelete.first_name, userToDelete.last_name)
                 )
             ),
@@ -86,12 +81,12 @@ fun PageSobositeAdminListUsers() {
 
     if ((vm.isFormSent.value) && (vm.isDeletionOk.value)) {
         MessageBox(
-            "* ${anyResText(AnyRes(Res.string.user_deletion_ok))} *",
-            anyResText(AnyRes(Res.string.user_deletion_ok_desc))
+            "* ${anyResText(AnyRes(AppRes.string.user_deletion_ok))} *",
+            anyResText(AnyRes(AppRes.string.user_deletion_ok_desc))
         )
     } else if (vm.isApiError.value) {
         ErrorMessageBox(
-            "* ${anyResText(AnyRes(Res.string.error_api_error))} *",
+            "* ${anyResText(AnyRes(AppRes.string.error_api_error))} *",
             vm.apiErrorDetails.value
         )
     }

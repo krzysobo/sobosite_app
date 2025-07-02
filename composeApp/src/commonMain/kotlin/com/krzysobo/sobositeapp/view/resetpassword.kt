@@ -17,20 +17,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.error_network_error
-import sobositeapp.composeapp.generated.resources.error_network_error_desc
-import sobositeapp.composeapp.generated.resources.password_reset
-import sobositeapp.composeapp.generated.resources.reset_your_password
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.LoginWidget
 import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeader
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.viewmodel.ResetPasswordPageVM
 import com.krzysobo.sobositeapp.viewmodel.getResetPasswordPageVM
 import kotlinx.coroutines.launch
-import sobositeapp.composeapp.generated.resources.password_reset_desc_s
 
 @Composable
 fun PageSobositeResetPassword() {
@@ -52,7 +47,7 @@ fun PageSobositeResetPassword() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             item {
-                PageHeader(anyResText(AnyRes(Res.string.reset_your_password)))
+                PageHeader(anyResText(AnyRes(AppRes.string.reset_your_password)))
             }
 
             val leadingIcon = @Composable {
@@ -66,14 +61,14 @@ fun PageSobositeResetPassword() {
 
                 if (vm.isFormSent.value) {
                     MessageBox(
-                        "* ${anyResText(AnyRes(Res.string.password_reset))} *",
-                        anyResText(AnyRes(Res.string.password_reset_desc_s, vm.login.value))
+                        "* ${anyResText(AnyRes(AppRes.string.password_reset))} *",
+                        anyResText(AnyRes(AppRes.string.password_reset_desc_s, vm.login.value))
                     )
                 } else {
                     if (vm.isApiError.value) {
                         MessageBox(
-                            "* ${anyResText(AnyRes(Res.string.error_network_error))} *",
-                            anyResText(AnyRes(Res.string.error_network_error_desc))
+                            "* ${anyResText(AnyRes(AppRes.string.error_network_error))} *",
+                            anyResText(AnyRes(AppRes.string.error_network_error_desc))
                         )
                     }
                     /**
@@ -102,7 +97,7 @@ fun PageSobositeResetPassword() {
                             }
                         },
                         modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.reset_your_password))) }
+                    ) { Text(anyResText(AnyRes(AppRes.string.reset_your_password))) }
                 }
             }
         }

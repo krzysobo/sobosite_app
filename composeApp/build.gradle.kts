@@ -10,13 +10,13 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.serialization)
-    id("build-acme-resources")
+    id("build-sobo-resources")
 }
 
 soboStringResourcesConfig {
     resourcesDir.set("src/commonMain/composeResources")
-    outputDir.set("${buildDir}/generated/source/kmp/main/kotlin/com/krzysobo/soboapptpl/generated")
-    resourcesOutputPackage.set("com.krzysobo.soboapptpl.generated")
+    outputDir.set("${buildDir}/generated/source/kmp/main/kotlin/com/krzysobo/sobositeapp/generated")
+    resourcesOutputPackage.set("com.krzysobo.sobositeapp.generated")
 }
 
 

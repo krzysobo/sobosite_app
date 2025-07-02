@@ -8,12 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.krzysobo.soboapptpl.pubres.PubRes
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.welcome_story_sobosite
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.sobositeapp.appVersion
+import com.krzysobo.sobositeapp.appres.AppRes
 
 
 @Composable
@@ -28,7 +27,7 @@ fun PageSobositeWelcome() {
         }
 
         item {
-            Text(anyResText(AnyRes(Res.string.welcome_story_sobosite)))
+            Text(anyResText(AnyRes(AppRes.string.welcome_story_sobosite)))
         }
 
         item {

@@ -19,10 +19,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.create_user
-import sobositeapp.composeapp.generated.resources.user_is_active
-import sobositeapp.composeapp.generated.resources.user_is_staff
 import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.SoboRouter
@@ -30,6 +26,7 @@ import com.krzysobo.soboapptpl.service.anyResText
 import com.krzysobo.soboapptpl.widgets.soboTableDataRow
 import com.krzysobo.soboapptpl.widgets.soboTableFooter
 import com.krzysobo.soboapptpl.widgets.soboTableHeader
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.settings.AppRequestEditUser
 import com.krzysobo.sobositeapp.settings.SOBOSITE_ROUTE_HANDLE
 import com.krzysobo.sobositeapp.viewmodel.admin.AdminListUsersPageVM
@@ -42,8 +39,8 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
         anyResText(AnyRes(PubRes.string.email)),
         anyResText(AnyRes(PubRes.string.first_name)),
         anyResText(AnyRes(PubRes.string.last_name)),
-        anyResText(AnyRes(Res.string.user_is_active)),
-        anyResText(AnyRes(Res.string.user_is_staff)),
+        anyResText(AnyRes(AppRes.string.user_is_active)),
+        anyResText(AnyRes(AppRes.string.user_is_staff)),
         anyResText(AnyRes(PubRes.string.actions)),
     )
 
@@ -62,9 +59,9 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
                         modifier = Modifier
                             .padding(end = 10.dp),
                         imageVector = Icons.Default.Add,
-                        contentDescription = anyResText(AnyRes(Res.string.create_user))
+                        contentDescription = anyResText(AnyRes(AppRes.string.create_user))
                     )
-                    Text(anyResText(AnyRes(Res.string.create_user)))
+                    Text(anyResText(AnyRes(AppRes.string.create_user)))
                 }
             }
         }

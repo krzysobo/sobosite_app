@@ -22,13 +22,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.close_password_edition
-import sobositeapp.composeapp.generated.resources.error_profile_updating_error
-import sobositeapp.composeapp.generated.resources.open_password_edition
-import sobositeapp.composeapp.generated.resources.profile_updated
-import sobositeapp.composeapp.generated.resources.profile_updated_ok
-import sobositeapp.composeapp.generated.resources.update_profile
 import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
@@ -38,10 +31,10 @@ import com.krzysobo.soboapptpl.widgets.LoginWidget
 import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.viewmodel.ProfilePageVM
 import com.krzysobo.sobositeapp.viewmodel.getProfilePageVM
 import com.krzysobo.sobositeapp.viewmodel.getUserStateVM
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
@@ -89,12 +82,12 @@ fun PageSobositeProfile() {
             item {
                 if (vm.isFormSent.value) {
                     MessageBox(
-                        "* ${anyResText(AnyRes(Res.string.profile_updated))} *",
-                        anyResText(AnyRes(Res.string.profile_updated_ok))
+                        "* ${anyResText(AnyRes(AppRes.string.profile_updated))} *",
+                        anyResText(AnyRes(AppRes.string.profile_updated_ok))
                     )
                 } else if (vm.isApiError.value) {
                     ErrorMessageBox(
-                        "* ${anyResText(AnyRes(Res.string.error_profile_updating_error))} *",
+                        "* ${anyResText(AnyRes(AppRes.string.error_profile_updating_error))} *",
                         vm.apiErrorDetails.value
                     )
                 }
@@ -185,7 +178,7 @@ fun PageSobositeProfile() {
                             vm.isPassChangeOpen.value = false
                         },
                         modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.close_password_edition))) }
+                    ) { Text(anyResText(AnyRes(AppRes.string.close_password_edition))) }
 
                     /**
                      * Password
@@ -246,7 +239,7 @@ fun PageSobositeProfile() {
                             vm.isPassChangeOpen.value = true
                         },
                         modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.open_password_edition))) }
+                    ) { Text(anyResText(AnyRes(AppRes.string.open_password_edition))) }
 
                 }
                 // =============================================================
@@ -269,7 +262,7 @@ fun PageSobositeProfile() {
 
                     },
                     modifier = Modifier.padding(all = 10.dp)
-                ) { Text(anyResText(AnyRes(Res.string.update_profile))) }
+                ) { Text(anyResText(AnyRes(AppRes.string.update_profile))) }
             }
         }
     } else {

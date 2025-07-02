@@ -22,16 +22,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.confirm_password_reset
-import sobositeapp.composeapp.generated.resources.confirm_password_reset_long
-import sobositeapp.composeapp.generated.resources.error_password_reset_confirmation_error
-import sobositeapp.composeapp.generated.resources.error_password_reset_confirmation_error_desc
-import sobositeapp.composeapp.generated.resources.password_reset_ok
-import sobositeapp.composeapp.generated.resources.password_reset_ok_desc
-import sobositeapp.composeapp.generated.resources.token
-import sobositeapp.composeapp.generated.resources.token_required
-import sobositeapp.composeapp.generated.resources.your_token
 import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
@@ -42,6 +32,7 @@ import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.viewmodel.ResetPasswordConfirmPageVM
 import com.krzysobo.sobositeapp.viewmodel.getResetPasswordConfirmPageVM
 import kotlinx.coroutines.launch
@@ -74,20 +65,20 @@ fun PageSobositeResetPasswordConfirm() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             item {
-                PageHeader(anyResText(AnyRes(Res.string.confirm_password_reset)))
+                PageHeader(anyResText(AnyRes(AppRes.string.confirm_password_reset)))
             }
 
             item {
                 if (vm.isFormSent.value) {
                     MessageBox(
-                        "* ${anyResText(AnyRes(Res.string.password_reset_ok))} *",
-                        anyResText(AnyRes(Res.string.password_reset_ok_desc)),
+                        "* ${anyResText(AnyRes(AppRes.string.password_reset_ok))} *",
+                        anyResText(AnyRes(AppRes.string.password_reset_ok_desc)),
                     )
                 } else {
                     if (vm.isApiError.value) {
                         ErrorMessageBox(
-                            "* ${anyResText(AnyRes(Res.string.error_password_reset_confirmation_error))} *",
-                            anyResText(AnyRes(Res.string.error_password_reset_confirmation_error_desc))
+                            "* ${anyResText(AnyRes(AppRes.string.error_password_reset_confirmation_error))} *",
+                            anyResText(AnyRes(AppRes.string.error_password_reset_confirmation_error_desc))
                         )
                     }
 
@@ -142,11 +133,11 @@ fun PageSobositeResetPasswordConfirm() {
                             vm.clearTokenError()
                         },
                         modifier = Modifier.padding(all = 10.dp).fillMaxWidth(),
-                        labelText = anyResText(AnyRes(Res.string.token)),
-                        placeHolderText = anyResText(AnyRes(Res.string.your_token)),
+                        labelText = anyResText(AnyRes(AppRes.string.token)),
+                        placeHolderText = anyResText(AnyRes(AppRes.string.your_token)),
                         leadingIcon = leadingIcon,
                         isError = vm.isErrorToken.value,
-                        errorText = anyResText(AnyRes(Res.string.token_required)),
+                        errorText = anyResText(AnyRes(AppRes.string.token_required)),
                         focusManager = focusManager
                     )
 
@@ -199,7 +190,7 @@ fun PageSobositeResetPasswordConfirm() {
                             }
                         },
                         modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.confirm_password_reset_long))) }
+                    ) { Text(anyResText(AnyRes(AppRes.string.confirm_password_reset_long))) }
 
                 }
             }

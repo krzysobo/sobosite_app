@@ -15,15 +15,10 @@ import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material.icons.filled.VpnKey
 import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.settings.SOBOSITE_ROUTE_HANDLE
 import com.krzysobo.sobositeapp.viewmodel.actionLogoutUser
 import kotlinx.coroutines.launch
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.profile
-import sobositeapp.composeapp.generated.resources.register
-import sobositeapp.composeapp.generated.resources.register_confirm
-import sobositeapp.composeapp.generated.resources.reset_pass_confirm
-import sobositeapp.composeapp.generated.resources.users
 
 val aboutItem = com.krzysobo.soboapptpl.widgets.menus.SoboMenuItem(
     "about",
@@ -55,7 +50,7 @@ val loginItem = com.krzysobo.soboapptpl.widgets.menus.SoboMenuItem(
 
 val registerItem = com.krzysobo.soboapptpl.widgets.menus.SoboMenuItem(
     "register",
-    AnyRes(Res.string.register),
+    AnyRes(AppRes.string.register),
     Icons.Default.AppRegistration,
     routeHandle = SOBOSITE_ROUTE_HANDLE.REGISTER.value
 )
@@ -69,7 +64,7 @@ val homeItem = com.krzysobo.soboapptpl.widgets.menus.SoboMenuItem(
 
 val profileItem = com.krzysobo.soboapptpl.widgets.menus.SoboMenuItem(
     "profile",
-    AnyRes(Res.string.profile),
+    AnyRes(AppRes.string.profile),
     Icons.Default.Person,
     routeHandle = SOBOSITE_ROUTE_HANDLE.PROFILE.value
 )
@@ -88,21 +83,21 @@ val logoutItem = com.krzysobo.soboapptpl.widgets.menus.SoboMenuItem(
 
 val confirmRegItem = com.krzysobo.soboapptpl.widgets.menus.SoboMenuItem(
     "confirm_reg",
-    AnyRes(Res.string.register_confirm),
+    AnyRes(AppRes.string.register_confirm),
     Icons.Default.VerifiedUser,
     routeHandle = SOBOSITE_ROUTE_HANDLE.REGISTER_CONFIRM.value
 )
 
 val confirmPassResetItem = com.krzysobo.soboapptpl.widgets.menus.SoboMenuItem(
     "confirm_pass_reset",
-    AnyRes(Res.string.reset_pass_confirm),
+    AnyRes(AppRes.string.reset_pass_confirm),
     Icons.Default.VpnKey,
     routeHandle = SOBOSITE_ROUTE_HANDLE.CONFIRM_PASS_RESET.value
 )
 
 val adminUsersItem = com.krzysobo.soboapptpl.widgets.menus.SoboMenuItem(
     "admin_users",
-    AnyRes(Res.string.users),
+    AnyRes(AppRes.string.users),
     Icons.AutoMirrored.Filled.List,
     SOBOSITE_ROUTE_HANDLE.ADMIN_USERS.value
 )

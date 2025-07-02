@@ -20,18 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.krzysobo.soboapptpl.pubres.PubRes
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.api_prefix_s
-import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p1
-import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p2
-import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p3
-import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p4
-import sobositeapp.composeapp.generated.resources.error_bad_credentials_long_p5
-import sobositeapp.composeapp.generated.resources.error_login_error
-import sobositeapp.composeapp.generated.resources.error_unknown_error
-import sobositeapp.composeapp.generated.resources.login_page
-import sobositeapp.composeapp.generated.resources.register
-import sobositeapp.composeapp.generated.resources.reset_pass
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.soboapptpl.service.anyResText
@@ -39,6 +27,7 @@ import com.krzysobo.soboapptpl.widgets.ErrorMessageBox
 import com.krzysobo.soboapptpl.widgets.LoginWidget
 import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.service.HttpService
 import com.krzysobo.sobositeapp.settings.SOBOSITE_ROUTE_HANDLE
 import com.krzysobo.sobositeapp.viewmodel.LoginPageVM
@@ -71,32 +60,32 @@ fun PageSobositeLogin() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             item {
-                PageHeader(anyResText(AnyRes(Res.string.login_page)))
-                Text(anyResText(AnyRes(Res.string.api_prefix_s, HttpService().retApiPrefix())))
+                PageHeader(anyResText(AnyRes(AppRes.string.login_page)))
+                Text(anyResText(AnyRes(AppRes.string.api_prefix_s, HttpService().retApiPrefix())))
             }
 
             item {
                 if (vm.isFormSent.value) {
                     SoboRouter.navigateToLoggedInUserHome()
                 } else {
-                    val resLoginError = anyResText(AnyRes(Res.string.error_login_error))
+                    val resLoginError = anyResText(AnyRes(AppRes.string.error_login_error))
                     if (vm.isAuthError.value) {
                         val errorText = buildAnnotatedString {
-                            append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p1)))
+                            append(anyResText(AnyRes(AppRes.string.error_bad_credentials_long_p1)))
                             withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                                append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p2)))
+                                append(anyResText(AnyRes(AppRes.string.error_bad_credentials_long_p2)))
                             }
-                            append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p3)))
+                            append(anyResText(AnyRes(AppRes.string.error_bad_credentials_long_p3)))
                             withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                                append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p4)))
+                                append(anyResText(AnyRes(AppRes.string.error_bad_credentials_long_p4)))
                             }
-                            append(anyResText(AnyRes(Res.string.error_bad_credentials_long_p5)))
+                            append(anyResText(AnyRes(AppRes.string.error_bad_credentials_long_p5)))
                         }
                         ErrorMessageBox("* $resLoginError *", errorText)
                     } else if (vm.isApiError.value) {
                         val errorText =
                             if (vm.apiErrorDetails.value != "") vm.apiErrorDetails.value else
-                                anyResText(AnyRes(Res.string.error_unknown_error))
+                                anyResText(AnyRes(AppRes.string.error_unknown_error))
                         ErrorMessageBox("* $resLoginError *", errorText)
                     }
 
@@ -150,7 +139,7 @@ fun PageSobositeLogin() {
                                 SoboRouter.navigateToRouteHandle(SOBOSITE_ROUTE_HANDLE.REGISTER.value)
                             },
                             modifier = Modifier.padding(all = 10.dp)
-                        ) { Text(anyResText(AnyRes(Res.string.register))) }
+                        ) { Text(anyResText(AnyRes(AppRes.string.register))) }
                     }
 
                     Row {
@@ -159,7 +148,7 @@ fun PageSobositeLogin() {
                                 SoboRouter.navigateToRouteHandle(SOBOSITE_ROUTE_HANDLE.RESET_PASS.value)
                             },
                             modifier = Modifier.padding(all = 10.dp)
-                        ) { Text(anyResText(AnyRes(Res.string.reset_pass))) }
+                        ) { Text(anyResText(AnyRes(AppRes.string.reset_pass))) }
                     }
 
                 }

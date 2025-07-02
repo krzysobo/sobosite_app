@@ -1,21 +1,14 @@
 package com.krzysobo.sobositeapp.settings
 import com.krzysobo.soboapptpl.pubres.PubRes
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.dashboard
-import sobositeapp.composeapp.generated.resources.profile
-import sobositeapp.composeapp.generated.resources.register
-import sobositeapp.composeapp.generated.resources.register_confirm
-import sobositeapp.composeapp.generated.resources.reset_pass
-import sobositeapp.composeapp.generated.resources.reset_pass_confirm
-import sobositeapp.composeapp.generated.resources.user_edition
-import sobositeapp.composeapp.generated.resources.users
-import sobositeapp.composeapp.generated.resources.welcome
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.AppRequest
 import com.krzysobo.soboapptpl.service.SoboRoute
 import com.krzysobo.soboapptpl.service.USER_ROLE
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.view.PageAboutSobosite
 import com.krzysobo.sobositeapp.view.PageHelpSobosite
+import com.krzysobo.sobositeapp.view.PageSobositeAdminEditUser
+import com.krzysobo.sobositeapp.view.PageSobositeAdminListUsers
 import com.krzysobo.sobositeapp.view.PageSobositeDashboard
 import com.krzysobo.sobositeapp.view.PageSobositeLogin
 import com.krzysobo.sobositeapp.view.PageSobositeProfile
@@ -24,8 +17,6 @@ import com.krzysobo.sobositeapp.view.PageSobositeRegisterConfirm
 import com.krzysobo.sobositeapp.view.PageSobositeResetPassword
 import com.krzysobo.sobositeapp.view.PageSobositeResetPasswordConfirm
 import com.krzysobo.sobositeapp.view.PageSobositeSettings
-import com.krzysobo.sobositeapp.view.PageSobositeAdminEditUser
-import com.krzysobo.sobositeapp.view.PageSobositeAdminListUsers
 import com.krzysobo.sobositeapp.view.PageSobositeWelcome
 
 
@@ -65,31 +56,31 @@ val sobositeRouteHandlesForDesktopMenu = listOf<String>(
 val sobositeRoutes = listOf(
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.WELCOME.value,
-        AnyRes(Res.string.welcome),
+        AnyRes(PubRes.string.welcome),
         { PageSobositeWelcome() }
     ),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.PROFILE.value,
-        AnyRes(Res.string.profile),
+        AnyRes(AppRes.string.profile),
         { PageSobositeProfile() },
         perms = listOf(USER_ROLE.USER, USER_ROLE.ADMIN)
     ),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.DASHBOARD.value,
-        AnyRes(Res.string.dashboard),
+        AnyRes(AppRes.string.dashboard),
         { PageSobositeDashboard() },
         perms = listOf(USER_ROLE.USER, USER_ROLE.ADMIN)
     ),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.ADMIN_USERS.value,
-        AnyRes(Res.string.users),
+        AnyRes(AppRes.string.users),
         { PageSobositeAdminListUsers() },
         perms = listOf(USER_ROLE.ADMIN)
     ),
 
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.ADMIN_EDIT_USER.value,
-        AnyRes(Res.string.user_edition),
+        AnyRes(AppRes.string.user_edition),
         {PageSobositeAdminEditUser() },
         perms = listOf(USER_ROLE.ADMIN),
         funcWithReq = {
@@ -106,25 +97,25 @@ val sobositeRoutes = listOf(
     ),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.REGISTER.value,
-        AnyRes(Res.string.register),
+        AnyRes(AppRes.string.register),
         { PageSobositeRegister() },
         perms = listOf(USER_ROLE.ANON_ONLY)
     ),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.REGISTER_CONFIRM.value,
-        AnyRes(Res.string.register_confirm),
+        AnyRes(AppRes.string.register_confirm),
         { PageSobositeRegisterConfirm() },
         perms = listOf(USER_ROLE.ANON_ONLY)
     ),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.RESET_PASS.value,
-        AnyRes(Res.string.reset_pass),
+        AnyRes(AppRes.string.reset_pass),
         { PageSobositeResetPassword() },
         perms = listOf(USER_ROLE.ANON_ONLY)
     ),
     SoboRoute(
         SOBOSITE_ROUTE_HANDLE.CONFIRM_PASS_RESET.value,
-        AnyRes(Res.string.reset_pass_confirm),
+        AnyRes(AppRes.string.reset_pass_confirm),
         { PageSobositeResetPasswordConfirm() },
         perms = listOf(USER_ROLE.ANON_ONLY)
     ),

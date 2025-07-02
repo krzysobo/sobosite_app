@@ -18,12 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.error_registration_failure
-import sobositeapp.composeapp.generated.resources.register
-import sobositeapp.composeapp.generated.resources.registration_ok
-import sobositeapp.composeapp.generated.resources.registration_ok_desc
-import sobositeapp.composeapp.generated.resources.user_registration
 import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.anyResText
@@ -34,6 +28,7 @@ import com.krzysobo.soboapptpl.widgets.MessageBox
 import com.krzysobo.soboapptpl.widgets.PageHeader
 import com.krzysobo.soboapptpl.widgets.PasswordWidget
 import com.krzysobo.soboapptpl.widgets.TextFieldWithErrorsKeyboardSettings
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.viewmodel.RegisterPageVM
 import com.krzysobo.sobositeapp.viewmodel.getRegisterPageVM
 import kotlinx.coroutines.launch
@@ -69,20 +64,20 @@ fun PageSobositeRegister() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             item {
-                PageHeader(anyResText(AnyRes(Res.string.user_registration)))
+                PageHeader(anyResText(AnyRes(AppRes.string.user_registration)))
             }
 
             item {
 
                 if (vm.isFormSent.value) {
                     MessageBox(
-                        "* ${anyResText(AnyRes(Res.string.registration_ok))} *",
-                        anyResText(AnyRes(Res.string.registration_ok_desc))
+                        "* ${anyResText(AnyRes(AppRes.string.registration_ok))} *",
+                        anyResText(AnyRes(AppRes.string.registration_ok_desc))
                     )
                 } else {
                     if (vm.isApiError.value) {
                         ErrorMessageBox(
-                            "* ${anyResText(AnyRes(Res.string.error_registration_failure))} *",
+                            "* ${anyResText(AnyRes(AppRes.string.error_registration_failure))} *",
                             vm.apiErrorDetails.value
                         )
                     }
@@ -191,7 +186,7 @@ fun PageSobositeRegister() {
                             }
                         },
                         modifier = Modifier.padding(all = 10.dp)
-                    ) { Text(anyResText(AnyRes(Res.string.register))) }
+                    ) { Text(anyResText(AnyRes(AppRes.string.register))) }
                 }
             }
 

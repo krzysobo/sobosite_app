@@ -40,17 +40,12 @@ import com.krzysobo.soboapptpl.pubres.PubRes
 import com.krzysobo.soboapptpl.service.AnyRes
 import com.krzysobo.soboapptpl.service.SoboRouter
 import com.krzysobo.soboapptpl.service.anyResText
+import com.krzysobo.sobositeapp.appres.AppRes
 import com.krzysobo.sobositeapp.settings.AppRequestEditUser
 import com.krzysobo.sobositeapp.settings.SOBOSITE_ROUTE_HANDLE
 import com.krzysobo.sobositeapp.viewmodel.admin.AdminListUsersPageVM
 import com.krzysobo.sobositeapp.viewmodel.doRefreshAdminUserList
 import kotlinx.coroutines.launch
-import sobositeapp.composeapp.generated.resources.Res
-import sobositeapp.composeapp.generated.resources.create_user
-import sobositeapp.composeapp.generated.resources.refresh_user_list
-import sobositeapp.composeapp.generated.resources.user_is_active
-import sobositeapp.composeapp.generated.resources.user_is_staff
-import sobositeapp.composeapp.generated.resources.user_is_staff_desc
 
 
 @Composable
@@ -85,8 +80,8 @@ fun soboTableFooterAndroid(
 //        curPageSize = options[curOptionIndex]
     }
 
-//    val totalItems = anyResText(AnyRes(Res.string.total_items_n, itemsNo))
-//    val pageSize = anyResText(AnyRes(Res.string.page_size))
+//    val totalItems = anyResText(AnyRes(AppRes.string.total_items_n, itemsNo))
+//    val pageSize = anyResText(AnyRes(AppRes.string.page_size))
 
     Row {
         Icon(
@@ -168,8 +163,8 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
         anyResText(AnyRes(PubRes.string.email)),
         anyResText(AnyRes(PubRes.string.first_name)),
         anyResText(AnyRes(PubRes.string.last_name)),
-        anyResText(AnyRes(Res.string.user_is_active)),
-        anyResText(AnyRes(Res.string.user_is_staff)),
+        anyResText(AnyRes(AppRes.string.user_is_active)),
+        anyResText(AnyRes(AppRes.string.user_is_staff)),
         anyResText(AnyRes(PubRes.string.actions)),
     )
 
@@ -230,9 +225,9 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
                                 modifier = Modifier
                                     .padding(end = 10.dp),
                                 imageVector = Icons.Default.Add,
-                                contentDescription = anyResText(AnyRes(Res.string.create_user))
+                                contentDescription = anyResText(AnyRes(AppRes.string.create_user))
                             )
-                            Text(anyResText(AnyRes(Res.string.create_user)))
+                            Text(anyResText(AnyRes(AppRes.string.create_user)))
                         }
 
                         Button(
@@ -249,9 +244,9 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
                                 modifier = Modifier
                                     .padding(end = 10.dp),
                                 imageVector = Icons.Default.Refresh,
-                                contentDescription = anyResText(AnyRes(Res.string.refresh_user_list))
+                                contentDescription = anyResText(AnyRes(AppRes.string.refresh_user_list))
                             )
-                            Text(anyResText(AnyRes(Res.string.refresh_user_list)))
+                            Text(anyResText(AnyRes(AppRes.string.refresh_user_list)))
                         }
                     }
                 }
@@ -306,8 +301,8 @@ actual fun ShowUsersList(vm: AdminListUsersPageVM, footerTextStyle: TextStyle) {
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(all = 7.dp),
-                                    text = "${anyResText(AnyRes(Res.string.user_is_active))} $isActiveStr  " +
-                                            "${anyResText(AnyRes(Res.string.user_is_staff_desc))}? $isStaffStr"
+                                    text = "${anyResText(AnyRes(AppRes.string.user_is_active))} $isActiveStr  " +
+                                            "${anyResText(AnyRes(AppRes.string.user_is_staff_desc))}? $isStaffStr"
                                 )
 
                                 Row(
